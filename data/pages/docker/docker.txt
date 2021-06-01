@@ -1,0 +1,2 @@
+docker ps -a
+docker cp 741cc18d959e:/usr/share/elasticsearch/config /disk1

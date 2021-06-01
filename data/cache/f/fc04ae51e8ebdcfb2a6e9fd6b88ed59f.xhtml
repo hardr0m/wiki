@@ -1,0 +1,286 @@
+
+<h1 class="sectionedit1" id="начальные_настройки_git">Начальные настройки Git</h1>
+<div class="level1">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041d\u0430\u0447\u0430\u043b\u044c\u043d\u044b\u0435 \u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438 Git&quot;,&quot;hid&quot;:&quot;\u043d\u0430\u0447\u0430\u043b\u044c\u043d\u044b\u0435_\u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0438_git&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-62&quot;} -->
+<h2 class="sectionedit2" id="установка_debian_ubuntu">1. Установка(Debian/Ubuntu).</h2>
+<div class="level2">
+
+<p>
+$sudo apt install git
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;1. \u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430(Debian\/Ubuntu).&quot;,&quot;hid&quot;:&quot;\u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430_debian_ubuntu&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;63-141&quot;} -->
+<h2 class="sectionedit3" id="указать_имя_пользователя_и_email">2. Указать имя пользователя и email</h2>
+<div class="level2">
+
+<p>
+$ git config –global user.name «John Doe»<br />
+$ git config –global user.email johndoe@example.com
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;2. \u0423\u043a\u0430\u0437\u0430\u0442\u044c \u0438\u043c\u044f \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u0438 email&quot;,&quot;hid&quot;:&quot;\u0443\u043a\u0430\u0437\u0430\u0442\u044c_\u0438\u043c\u044f_\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f_\u0438_email&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:3,&quot;range&quot;:&quot;142-313&quot;} -->
+<h2 class="sectionedit4" id="выбор_редактора">3.Выбор редактора</h2>
+<div class="level2">
+
+<p>
+$ git config –global core.editor emacs(vim, nano)
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;3.\u0412\u044b\u0431\u043e\u0440 \u0440\u0435\u0434\u0430\u043a\u0442\u043e\u0440\u0430&quot;,&quot;hid&quot;:&quot;\u0432\u044b\u0431\u043e\u0440_\u0440\u0435\u0434\u0430\u043a\u0442\u043e\u0440\u0430&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:4,&quot;range&quot;:&quot;314-412&quot;} -->
+<h2 class="sectionedit5" id="проверка_настроек_просмотр_версии">4. Проверка настроек. Просмотр версии.</h2>
+<div class="level2">
+
+<p>
+$ git config –list<br />
+$ git config –v
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;4. \u041f\u0440\u043e\u0432\u0435\u0440\u043a\u0430 \u043d\u0430\u0441\u0442\u0440\u043e\u0435\u043a. \u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0432\u0435\u0440\u0441\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u043f\u0440\u043e\u0432\u0435\u0440\u043a\u0430_\u043d\u0430\u0441\u0442\u0440\u043e\u0435\u043a_\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440_\u0432\u0435\u0440\u0441\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:5,&quot;range&quot;:&quot;413-535&quot;} -->
+<h2 class="sectionedit6" id="как_получить_помощь">5. Как получить помощь.</h2>
+<div class="level2">
+
+<p>
+$ git help &lt;команда&gt;<br />
+$ git &lt;команда&gt; - -help<br />
+$ man git-&lt;команда&gt;
+</p>
+
+<p>
+Пример: <br />
+$ git help config
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;5. \u041a\u0430\u043a \u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u043f\u043e\u043c\u043e\u0449\u044c.&quot;,&quot;hid&quot;:&quot;\u043a\u0430\u043a_\u043f\u043e\u043b\u0443\u0447\u0438\u0442\u044c_\u043f\u043e\u043c\u043e\u0449\u044c&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:6,&quot;range&quot;:&quot;536-712&quot;} -->
+<h2 class="sectionedit7" id="создание_нового_репозитория">6.Создание нового репозитория.</h2>
+<div class="level2">
+
+<p>
+$ git init
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;6.\u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0433\u043e \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u044f.&quot;,&quot;hid&quot;:&quot;\u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435_\u043d\u043e\u0432\u043e\u0433\u043e_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u044f&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:7,&quot;range&quot;:&quot;713-796&quot;} -->
+<h2 class="sectionedit8" id="просмотр_истории_изменений_в_репозитории">7. Просмотр истории изменений в репозитории.</h2>
+<div class="level2">
+
+<p>
+$ git log<br />
+$ git log - -online   #более удобный вид<br />
+$ git log - -stat   #сокращенная статистика для каждого коммита<br />
+$ git log - -pretty=oneline<br />
+$ git log - -pretty=format   #отображает наиболее полезные опции для изменения формата
+</p>
+
+<p>
+Пример:<br />
+$ git log - -pretty=format:«%h - %an, %ar : %s»
+</p>
+
+<p>
+Таблица 1. Полезные опции для git log - -pretty=format
+</p>
+
+<p>
+<strong>Опция.</strong>	<strong>Описания вывода.</strong>
+</p>
+
+<p>
+%H —    Хеш коммита<br />
+%h —    Сокращенный хеш коммита<br />
+%T —    Хеш дерева<br />
+%t —    Сокращенный хеш дерева<br />
+%P —    Хеш родителей<br />
+%p —    Сокращенный хеш родителей<br />
+%an —   Имя автора<br />
+%ae —   Электронная почта автора<br />
+%ad —   Дата автора (формат даты можно задать опцией –date=option)<br />
+%ar —   Относительная дата автора<br />
+%cn —   Имя коммитера<br />
+%ce —   Электронная почта коммитера<br />
+%cd —   Дата коммитера<br />
+%cr —   Относительная дата коммитера<br />
+%s —    Содержание
+</p>
+
+<p>
+$ git log - -pretty=format:«%h %s» - -graph   #показывает текущую ветку и историю слияний в виде графика
+</p>
+
+<p>
+Таблица 2. Наиболее распространенные опции для команды git log
+</p>
+
+<p>
+<strong>Опция.	Описание.</strong>
+</p>
+
+<p>
+-p — Показывает патч для каждого коммита.<br />
+- -stat — Показывает статистику измененных файлов для каждого коммита.<br />
+- -shortstat — Отображает только строку с количеством изменений/вставок/удалений для команды –stat.<br />
+- -name-only — Показывает список измененных файлов после информации о коммите.<br />
+- -name-status — Показывает список файлов, которые добавлены/изменены/удалены.<br />
+- -abbrev-commit — Показывает только несколько символов SHA-1 чек-суммы вместо всех 40.<br />
+- -relative-date — Отображает дату в относительном формате (например, «2 weeks ago») вместо стандартного формата даты.<br />
+- -graph — Отображает <abbr title="American Standard Code for Information Interchange">ASCII</abbr> граф с ветвлениями и историей слияний.<br />
+- -pretty — Показывает коммиты в альтернативном формате. Возможные варианты опций: oneline, short, full, fuller и format (с помощью последней можно указать свой формат).<br />
+- -oneline — Сокращение для одновременного использования опций –pretty=oneline –abbrev-commit.
+</p>
+
+<p>
+Таблица 3. Опции для ограничения вывода команды git log
+</p>
+
+<p>
+<strong>Опция.	Описание.</strong>
+</p>
+
+<p>
+-(n) — Показывает только последние n коммитов.<br />
+- -since, - -after — Показывает только те коммиты, которые были сделаны после указанной даты.<br />
+- -until, - -before — Показывает только те коммиты, которые были сделаны до указанной даты.<br />
+- -author — Показывает только те коммиты, в которых запись author совпадает с указанной строкой.<br />
+- -committer — Показывает только те коммиты, в которых запись committer совпадает с указанной строкой.<br />
+- -grep — Показывает только коммиты, сообщение которых содержит указанную строку.<br />
+-S — Показывает только коммиты, в которых изменение в коде повлекло за собой добавление или удаление указанной строки.
+</p>
+
+<p>
+Пример:
+</p>
+
+<p>
+$ git log –pretty=«%h - %s» –author=&#039;Junio C Hamano&#039; –since=«2008-10-01» \
+</p>
+<ol>
+<li class="level1"><div class="li">-before=«2008-11-01» –no-merges – t/</div>
+</li>
+</ol>
+
+<p>
+$ git reflog   #история всех операций 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;7. \u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0438\u0441\u0442\u043e\u0440\u0438\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440_\u0438\u0441\u0442\u043e\u0440\u0438\u0438_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;797-5410&quot;} -->
+<h2 class="sectionedit9" id="коммиты_-_сброс_и_ресет">8. Коммиты - сброс и ресет.</h2>
+<div class="level2">
+
+<p>
+$ git revert хэш коммита<br />
+$ git reset хэш коммита<br />
+$ git restore название файла
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;8. \u041a\u043e\u043c\u043c\u0438\u0442\u044b - \u0441\u0431\u0440\u043e\u0441 \u0438 \u0440\u0435\u0441\u0435\u0442.&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043c\u043c\u0438\u0442\u044b_-_\u0441\u0431\u0440\u043e\u0441_\u0438_\u0440\u0435\u0441\u0435\u0442&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;5411-5583&quot;} -->
+<h2 class="sectionedit10" id="определить_состояние_файлов">9. Определить состояние файлов</h2>
+<div class="level2">
+
+<p>
+$ git status
+</p>
+
+</div>
+
+<h5 id="вывод">====== Вывод: ======</h5>
+<div class="level5">
+
+<p>
+На ветке dev<br />
+Ваша ветка обновлена в соответствии с «origin/dev».<br />
+нечего коммитить, нет изменений в рабочем каталоге
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;9. \u041e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;hid&quot;:&quot;\u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c_\u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;5584-5904&quot;} -->
+<h3 class="sectionedit11" id="создание_новой_ветки_и_переключение">10. Создание новой ветки и переключение.</h3>
+<div class="level3">
+
+<p>
+$ git branch   # показывает в какой ветки находимся <br />
+$ git branch название ветки
+</p>
+
+<p>
+Пример: <br />
+$ git branch dev
+</p>
+
+<p>
+Переключиться на ветку:<br />
+$ git chekckout dev
+</p>
+
+<p>
+Создать ветку и сразу на нее переключиться:<br />
+$ git chekckout -b dev
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;10. \u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0439 \u0432\u0435\u0442\u043a\u0438 \u0438 \u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435.&quot;,&quot;hid&quot;:&quot;\u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435_\u043d\u043e\u0432\u043e\u0439_\u0432\u0435\u0442\u043a\u0438_\u0438_\u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;5905-6317&quot;} -->
+<h3 class="sectionedit12" id="работа_с_изменениями_в_репозитории">11. Работа с изменениями в репозитории.</h3>
+<div class="level3">
+
+<p>
+Сборка слепка следующего коммита(индексирование изменений)<br />
+$ git add .   # в текущем каталоге
+</p>
+
+<p>
+Запись индексированных изменений в репозитории:<br />
+$ git commit -m «именование внесенного изменения»
+</p>
+
+<p>
+Включить новые изменения в последний созданный коммит:<br />
+$ git commit - -amend
+</p>
+
+<p>
+Не создавать коммит, а только показать отчет и детальную информацию о нем, как если бы он был создан. (Используется для проверки на ошибки перед реальным коммитом):<br />
+$ git commit - -dry-run
+</p>
+
+<p>
+12. Публикация репозитория.<br />
+$ git clone git@github.com:hardr0m/wiki.git<br />
+$ git clone git@github.com:hardr0m/wiki.git project   #можем клонировать сразу в новую папку project<br />
+$ git remote -v   # проверка репозитория<br />
+$ git push #   загрузка всех изменений в удаленный репозиторий<br />
+$ git push -u origin wiki   # создание новой ветки wiki и перенос всех изменений в удаленный репозиторий<br />
+$ git pull   #загрузка на локальный компьютер из удаленного репозитория<br />
+$ git fetch   #обновить текущую синхронизацию 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;11. \u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u0440\u0430\u0431\u043e\u0442\u0430_\u0441_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;6318-7936&quot;} -->
+<h3 class="sectionedit13" id="объединение_веток">13.Объединение веток.</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="схема_работы">схема работы</h4>
+<div class="level4">
+
+<p>
+Создали ветку<br />
+Внесли изменения<br />
+Commit<br />
+Merge (слияние)
+</p>
+
+<p>
+$ git merge wiki   # слияние ветки wiki с основной веткой master<br />
+$ git branch -d wiki   #удаление ветки wiki
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;13.\u041e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435 \u0432\u0435\u0442\u043e\u043a.&quot;,&quot;hid&quot;:&quot;\u043e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435_\u0432\u0435\u0442\u043e\u043a&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;7937-&quot;} -->
