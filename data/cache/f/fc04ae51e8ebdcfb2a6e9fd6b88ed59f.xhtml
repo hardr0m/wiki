@@ -73,6 +73,7 @@ $ git init
 <p>
 $ git log<br />
 $ git log - -online   <em class="u">#более удобный вид</em><br />
+$ git log - -online - -all   <em class="u"># просмотр изменений на всех ветках</em><br />
 $ git log - -stat   <em class="u">#сокращенная статистика для каждого коммита</em><br />
 $ git log - -pretty=oneline<br />
 $ git log - -pretty=format   <em class="u">#отображает наиболее полезные опции для изменения формата</em>
@@ -169,7 +170,7 @@ $ git reflog   #история всех операций
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;7. \u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0438\u0441\u0442\u043e\u0440\u0438\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440_\u0438\u0441\u0442\u043e\u0440\u0438\u0438_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;818-5448&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;7. \u041f\u0440\u043e\u0441\u043c\u043e\u0442\u0440 \u0438\u0441\u0442\u043e\u0440\u0438\u0438 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u043f\u0440\u043e\u0441\u043c\u043e\u0442\u0440_\u0438\u0441\u0442\u043e\u0440\u0438\u0438_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u0439_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:8,&quot;range&quot;:&quot;818-5546&quot;} -->
 <h2 class="sectionedit9" id="коммиты_-_сброс_и_ресет">8. Коммиты - сброс и ресет.</h2>
 <div class="level2">
 
@@ -180,7 +181,7 @@ $ git restore название файла
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;8. \u041a\u043e\u043c\u043c\u0438\u0442\u044b - \u0441\u0431\u0440\u043e\u0441 \u0438 \u0440\u0435\u0441\u0435\u0442.&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043c\u043c\u0438\u0442\u044b_-_\u0441\u0431\u0440\u043e\u0441_\u0438_\u0440\u0435\u0441\u0435\u0442&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;5449-5621&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;8. \u041a\u043e\u043c\u043c\u0438\u0442\u044b - \u0441\u0431\u0440\u043e\u0441 \u0438 \u0440\u0435\u0441\u0435\u0442.&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043c\u043c\u0438\u0442\u044b_-_\u0441\u0431\u0440\u043e\u0441_\u0438_\u0440\u0435\u0441\u0435\u0442&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:9,&quot;range&quot;:&quot;5547-5719&quot;} -->
 <h2 class="sectionedit10" id="определить_состояние_файлов">9. Определить состояние файлов</h2>
 <div class="level2">
 
@@ -200,7 +201,7 @@ $ git status
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;9. \u041e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;hid&quot;:&quot;\u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c_\u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;5622-5942&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;9. \u041e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c \u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;hid&quot;:&quot;\u043e\u043f\u0440\u0435\u0434\u0435\u043b\u0438\u0442\u044c_\u0441\u043e\u0441\u0442\u043e\u044f\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:10,&quot;range&quot;:&quot;5720-6040&quot;} -->
 <h3 class="sectionedit11" id="создание_новой_ветки_и_переключение">10. Создание новой ветки и переключение.</h3>
 <div class="level3">
 
@@ -225,7 +226,7 @@ $ git chekckout -b dev
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;10. \u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0439 \u0432\u0435\u0442\u043a\u0438 \u0438 \u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435.&quot;,&quot;hid&quot;:&quot;\u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435_\u043d\u043e\u0432\u043e\u0439_\u0432\u0435\u0442\u043a\u0438_\u0438_\u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;5943-6355&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;10. \u0421\u043e\u0437\u0434\u0430\u043d\u0438\u0435 \u043d\u043e\u0432\u043e\u0439 \u0432\u0435\u0442\u043a\u0438 \u0438 \u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435.&quot;,&quot;hid&quot;:&quot;\u0441\u043e\u0437\u0434\u0430\u043d\u0438\u0435_\u043d\u043e\u0432\u043e\u0439_\u0432\u0435\u0442\u043a\u0438_\u0438_\u043f\u0435\u0440\u0435\u043a\u043b\u044e\u0447\u0435\u043d\u0438\u0435&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:11,&quot;range&quot;:&quot;6041-6453&quot;} -->
 <h3 class="sectionedit12" id="работа_с_изменениями_в_репозитории">11. Работа с изменениями в репозитории.</h3>
 <div class="level3">
 
@@ -261,7 +262,7 @@ $ git fetch   #обновить текущую синхронизацию
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;11. \u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u0440\u0430\u0431\u043e\u0442\u0430_\u0441_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;6356-7974&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;11. \u0420\u0430\u0431\u043e\u0442\u0430 \u0441 \u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438 \u0432 \u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u0440\u0430\u0431\u043e\u0442\u0430_\u0441_\u0438\u0437\u043c\u0435\u043d\u0435\u043d\u0438\u044f\u043c\u0438_\u0432_\u0440\u0435\u043f\u043e\u0437\u0438\u0442\u043e\u0440\u0438\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:12,&quot;range&quot;:&quot;6454-8072&quot;} -->
 <h3 class="sectionedit13" id="объединение_веток_смещение_начало_ветки">13. Объединение веток. Смещение начало ветки.</h3>
 <div class="level3">
 
@@ -285,7 +286,7 @@ $ git rebase master   <em class="u">#смещение ветки от своей
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;13. \u041e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435 \u0432\u0435\u0442\u043e\u043a. \u0421\u043c\u0435\u0449\u0435\u043d\u0438\u0435 \u043d\u0430\u0447\u0430\u043b\u043e \u0432\u0435\u0442\u043a\u0438.&quot;,&quot;hid&quot;:&quot;\u043e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435_\u0432\u0435\u0442\u043e\u043a_\u0441\u043c\u0435\u0449\u0435\u043d\u0438\u0435_\u043d\u0430\u0447\u0430\u043b\u043e_\u0432\u0435\u0442\u043a\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;7975-8560&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;13. \u041e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435 \u0432\u0435\u0442\u043e\u043a. \u0421\u043c\u0435\u0449\u0435\u043d\u0438\u0435 \u043d\u0430\u0447\u0430\u043b\u043e \u0432\u0435\u0442\u043a\u0438.&quot;,&quot;hid&quot;:&quot;\u043e\u0431\u044a\u0435\u0434\u0438\u043d\u0435\u043d\u0438\u0435_\u0432\u0435\u0442\u043e\u043a_\u0441\u043c\u0435\u0449\u0435\u043d\u0438\u0435_\u043d\u0430\u0447\u0430\u043b\u043e_\u0432\u0435\u0442\u043a\u0438&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:13,&quot;range&quot;:&quot;8073-8658&quot;} -->
 <h3 class="sectionedit14" id="управление_версиями_версионирование">14. Управление версиями (версионирование).</h3>
 <div class="level3">
 
@@ -298,19 +299,43 @@ $ git rebase master   <em class="u">#смещение ветки от своей
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;14. \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0432\u0435\u0440\u0441\u0438\u044f\u043c\u0438 (\u0432\u0435\u0440\u0441\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435).&quot;,&quot;hid&quot;:&quot;\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435_\u0432\u0435\u0440\u0441\u0438\u044f\u043c\u0438_\u0432\u0435\u0440\u0441\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:14,&quot;range&quot;:&quot;8561-8987&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;14. \u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0432\u0435\u0440\u0441\u0438\u044f\u043c\u0438 (\u0432\u0435\u0440\u0441\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435).&quot;,&quot;hid&quot;:&quot;\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435_\u0432\u0435\u0440\u0441\u0438\u044f\u043c\u0438_\u0432\u0435\u0440\u0441\u0438\u043e\u043d\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:14,&quot;range&quot;:&quot;8659-9085&quot;} -->
 <h3 class="sectionedit15" id="pull_request">15. PULL REQUEST</h3>
+<div class="level3">
+<pre class="code">Отличие от merge -создание некоего запроса. 
+Предложение изменения кода в чужом репозитории.</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;15. PULL REQUEST&quot;,&quot;hid&quot;:&quot;pull_request&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:15,&quot;range&quot;:&quot;9086-9295&quot;} -->
+<h3 class="sectionedit16" id="сложные_операции">16. Сложные операции.</h3>
 <div class="level3">
 
 <p>
-Отличие от merge -создание некоего запроса. <br />
-Предложение изменения кода в чужом репозитории.
+stash<br />
+$ git stash   <em class="u"># команда для «заморозки» коммитов</em><br />
+$ git stash push &lt;file&gt;   <em class="u"># добавить файл в stash</em><br />
+$ git stash list   <em class="u"># Просмотр stash</em><br />
+$ git stash pop stash@1   <em class="u"># восстановление коммитов</em>
+</p>
+
+<p>
+squash - объединение коммитов в один (удобно для отмены многих коммитов, git revert долго)<br />
+$ git merge wiki - -squash  <br />
+$ git reset - -hard   <em class="u"># сбросить состояние репозитория на последний коммит</em><br />
+$ git rebase -i HEAD~3   <em class="u"># объединить последние три коммита, i-интерактивный режим</em>
+</p>
+
+<p>
+cherry pick - перенос отдельных коммитов<br />
+$ git cherry-pick &lt;хэш коммита&gt;  <em class="u"> # перенос коммита</em><br />
+$ git cherry-pick &lt;branch&gt;  <em class="u"> # перенести последний коммит с ветки</em><br />
+$ git cherry-pick ..&lt;branch&gt;   <em class="u"># перенести все коммиты с ветки</em>
+</p>
+
+<p>
+$ git commit - -amend  <em class="u"> # перезапись последнего коммита</em><br />
+$ git push - -force    <em class="u"># перезаписать истории на удаленном репозитории</em>
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;15. PULL REQUEST&quot;,&quot;hid&quot;:&quot;pull_request&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:15,&quot;range&quot;:&quot;8988-9183&quot;} -->
-<h3 class="sectionedit16" id="основные_проблемы">16. Основные проблемы.</h3>
-<div class="level3">
-
-</div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;16. \u041e\u0441\u043d\u043e\u0432\u043d\u044b\u0435 \u043f\u0440\u043e\u0431\u043b\u0435\u043c\u044b.&quot;,&quot;hid&quot;:&quot;\u043e\u0441\u043d\u043e\u0432\u043d\u044b\u0435_\u043f\u0440\u043e\u0431\u043b\u0435\u043c\u044b&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:16,&quot;range&quot;:&quot;9184-&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;16. \u0421\u043b\u043e\u0436\u043d\u044b\u0435 \u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438.&quot;,&quot;hid&quot;:&quot;\u0441\u043b\u043e\u0436\u043d\u044b\u0435_\u043e\u043f\u0435\u0440\u0430\u0446\u0438\u0438&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:16,&quot;range&quot;:&quot;9296-&quot;} -->

@@ -5,3 +5,6 @@ nginx
 git:initial_settings_git
 nginx:nginx
 docker
+docker:docker
+docker:elk_filbeat
+docker:docker-compose

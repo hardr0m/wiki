@@ -1,0 +1,668 @@
+
+<h3 class="sectionedit1" id="preparing_the_elasticsearch_server">Preparing the ElasticSearch server</h3>
+<div class="level3">
+
+<p>
+Задача: настроить кластер из трех нод на одном сервере. Каждая нода настраивается на отдельно SSD диске. 
+</p>
+
+<p>
+Устанавливаем Docker.
+</p>
+
+<p>
+Добавляем ключ.
+</p>
+
+<p>
+$ curl -fsSL <a href="https://download.docker.com/linux/ubuntu/gpg" class="urlextern" title="https://download.docker.com/linux/ubuntu/gpg" rel="ugc nofollow">https://download.docker.com/linux/ubuntu/gpg</a> | sudo gpg –dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+</p>
+
+<p>
+Добавляем репозиторий.
+</p>
+
+<p>
+$ echo \ «deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] <a href="https://download.docker.com/linux/ubuntu" class="urlextern" title="https://download.docker.com/linux/ubuntu" rel="ugc nofollow">https://download.docker.com/linux/ubuntu</a> \ $(lsb_release -cs) stable» | sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null
+</p>
+
+<p>
+Обновляем список репозиториев и устанавливаем Docker
+</p>
+
+<p>
+$ sudo apt-get update
+</p>
+
+<p>
+$ sudo apt-get install docker-ce docker-ce-cli containerd.io
+</p>
+
+<p>
+Устанавливаем docker-compose.
+</p>
+
+<p>
+Мы проверим текущую версию и при необходимости обновим ее с помощью следующей команды:
+</p>
+
+<p>
+$ sudo curl -L <a href="https://github.com/docker/compose/releases/download/1.29.2/docker-compose" class="urlextern" title="https://github.com/docker/compose/releases/download/1.29.2/docker-compose" rel="ugc nofollow">https://github.com/docker/compose/releases/download/1.29.2/docker-compose</a>-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+</p>
+
+<p>
+После этого мы настроим разрешения:
+</p>
+
+<p>
+$ sudo chmod +x /usr/local/bin/docker-compose
+</p>
+
+<p>
+Затем мы проверим, что установка прошла успешно, с помощью проверки версии:
+</p>
+
+<p>
+$ docker-compose –version
+</p>
+
+<p>
+Настройка дисков и папок.
+</p>
+
+<p>
+Смотрим какие диски будем использовать для нод
+</p>
+
+<p>
+$ df -h
+</p>
+
+<p>
+или
+</p>
+
+<p>
+$ fdisk -l
+</p>
+
+<p>
+В нашем случае у нас три диска
+</p>
+
+<p>
+/dev/sdb 458G <br />
+/dev/sdc 458G <br />
+/dev/sdd 458G 
+</p>
+
+<p>
+Форматируем диски
+</p>
+
+<p>
+$ mkfs.ext4 /dev/sdc<br />
+$ mkfs.ext4 /dev/sdb<br />
+$ mkfs.ext4 /dev/sdd
+</p>
+
+<p>
+Создаем в корневом каталоге три папки 
+</p>
+
+<p>
+$ mkdir disk1
+</p>
+
+<p>
+$ mkdir disk1
+</p>
+
+<p>
+$ mkdir disk1
+</p>
+
+<p>
+Монтируем диски в папки
+</p>
+
+<p>
+$ mount /dev/sdc /disk1<br />
+$ mount /dev/sdb /disk2<br />
+$ mount /dev/sdd /disk3
+</p>
+
+<p>
+Редактируем fstab. Это нужно для того чтобы наши диски автоматически подключались при перезагрузки. 
+</p>
+
+<p>
+Добавляем:
+</p>
+
+<p>
+UUID=ac1e96f5-5a16-4a05-bf4a-f71fb2918c7f /disk1 ext4 defaults 0 2<br />
+UUID=64877eb4-cf62-4464-9bb9-66cba3e35883 /disk2 ext4 defaults 0 2<br />
+UUID=0573ae44-0a1b-4f24-8436-aaefb8d7928a /disk3 ext4 defaults 0 2<br />
+UUID - это идентификатор наших дисков. Его можно узнать командой blkid.
+</p>
+
+<p>
+Создаем пользователя elasticsearch и даем этому пользователю  полные права на папки disk1, disk2, disk3.
+</p>
+
+<p>
+$ useradd elasticsearch
+</p>
+
+<p>
+$ chown elasticsearch:elasticsearch -R /disk1<br />
+$ chown elasticsearch:elasticsearch -R /disk2<br />
+$ chown elasticsearch:elasticsearch -R /disk3
+</p>
+
+<p>
+Создаем папки конфигураций. В эти папки будем пробрасывать файлы конфигурации из контейнеров.
+</p>
+
+<p>
+$ cd  etc/
+</p>
+
+<p>
+$ mkdir p /elasticsearch/elk-01/config
+</p>
+
+<p>
+$ mkdir p /elasticsearch/elk-02/config                                           # elk-01, elk-02, elk-03 - это ноды нашего кластера
+</p>
+
+<p>
+$ mkdir p /elasticsearch/elk-03/config
+</p>
+
+<p>
+$ mkdir -p /kibana/config
+</p>
+
+<p>
+$ mkdir -p /logstash/config
+</p>
+
+<p>
+Присваиваем ID пользователя папкам аналогичные тем, что в контейнерах (в нашем случае ID пользователя 1000).
+</p>
+
+<p>
+chown -R 1000 /etc/elasticsearch/config
+</p>
+
+<p>
+chown -R 1000 /etc/logstash/config
+</p>
+
+<p>
+chown -R 1000 /etc/kibana/config
+</p>
+
+<p>
+Для того чтобы контейнеры elasticsearch, lagstash и kibana взаимодействовали между собой создадим сеть и позже укажем в настройках docker-compose.yml
+</p>
+
+<p>
+$ docker network create elastic
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Preparing the ElasticSearch server&quot;,&quot;hid&quot;:&quot;preparing_the_elasticsearch_server&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-4037&quot;} -->
+<h3 class="sectionedit2" id="start_a_three-node_elasticsearch7x_cluster_in_docker_using_docker_compose">Start a three-node Elasticsearch7.x cluster in Docker using Docker Compose.</h3>
+<div class="level3">
+
+<p>
+Ссылка на docker <a href="https://www.docker.elastic.co/" class="urlextern" title="https://www.docker.elastic.co/" rel="ugc nofollow">https://www.docker.elastic.co/</a>
+</p>
+
+<p>
+Создаем папку elastic
+</p>
+
+<p>
+$ cd opt/
+</p>
+
+<p>
+$ mkdit elastic
+</p>
+
+<p>
+$ nano docker-compose.yml
+</p>
+
+<p>
+И приводим к виду:
+</p>
+<pre class="code">version: &#039;3.5&#039;
+ 
+services:
+  elk-01:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    container_name: elk-01
+    environment:
+      - node.name=elk-01
+      - cluster.name=elk-is20-cluster
+      - discovery.seed_hosts=elk-02,elk-03
+      - cluster.initial_master_nodes=elk-01,elk-02,elk-03
+      - cluster.max_shards_per_node=5100
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms4g -Xmx4g&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /disk1/data:/usr/share/elasticsearch/data
+      - /disk1/logs:/usr/share/elasticsearch/logs
+      - /etc/elasticsearch/elk-01/config:/usr/share/elacticsearch/config
+    ports:
+      - 127.0.0.1:9200:9200
+    networks:
+      - elastic
+ 
+  elk-02:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    container_name: elk-02
+    environment:
+      - node.name=elk-02
+      - cluster.name=elk-is20-cluster
+      - discovery.seed_hosts=elk-01,elk-03
+      - cluster.initial_master_nodes=elk-01,elk-02,elk-03
+      - cluster.max_shards_per_node=5100
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms4g -Xmx4g&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /disk2/data:/usr/share/elasticsearch/data
+      - /disk2/logs:/usr/share/elasticsearch/logs
+      - /etc/elasticsearch/elk-02/config:/usr/share/elacticsearch/config
+    ports:
+      - 127.0.0.1:9400:9200
+    networks:
+      - elastic
+ 
+  elk-03:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.0
+    container_name: elk-03
+    environment:
+      - node.name=elk-03
+      - cluster.name=elk-is20-cluster
+      - discovery.seed_hosts=elk-01,elk-02
+      - cluster.initial_master_nodes=elk-01,elk-02,elk-03
+      - cluster.max_shards_per_node=5100
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms4g -Xmx4g&quot;
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - /disk3/data:/usr/share/elasticsearch/data
+      - /disk3/logs:/usr/share/elasticsearch/logs
+      - /etc/elasticsearch/elk-03/config:/usr/share/elacticsearch/config
+    ports:
+      - 127.0.0.1:9800:9200
+    networks:
+      - elastic
+ 
+networks:
+  elastic:
+    # Use a custom driver
+    name: elastic
+    driver: bridge</pre>
+
+<p>
+Запуск :
+</p>
+
+<p>
+$ cd /opt/elastic
+</p>
+
+<p>
+$ docker-compose up -d
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Start a three-node Elasticsearch7.x cluster in Docker using Docker Compose.&quot;,&quot;hid&quot;:&quot;start_a_three-node_elasticsearch7x_cluster_in_docker_using_docker_compose&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;4038-6639&quot;} -->
+<h3 class="sectionedit3" id="start_kibana7x_in_docker_using_docker_compose">Start kibana7.x in Docker using Docker Compose.</h3>
+<div class="level3">
+
+<p>
+Создаем папку kibana
+</p>
+
+<p>
+$ cd opt/
+</p>
+
+<p>
+$ mkdit kibana
+</p>
+
+<p>
+$ nano docker-compose.yml
+</p>
+
+<p>
+И приводим к виду:
+</p>
+<pre class="code">version: &#039;3.5&#039;
+services:
+  kibana:
+    image: &#039;docker.elastic.co/kibana/kibana:7.13.0&#039;
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elk-01:9200
+      - ELASTICSEARCH_HOSTS=http://elk-02:9200
+      - ELASTICSEARCH_HOSTS=http://elk-03:9200
+      - path.logs=/var/log/kibana
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms2g -Xmx2g&quot;
+      - logs:/var/log/kibana/kibana.log
+    ports:
+      - 127.0.0.1:5601:5601
+    networks:
+      - elastic
+    volumes:
+      - /etc/kibana/config:/usr/share/logstash/config:rw
+ 
+networks:
+  elastic:
+    # Use a custom driver
+       driver: bridge
+       name: elastic</pre>
+
+<p>
+Запуск :
+</p>
+
+<p>
+$ cd /opt/kibana
+</p>
+
+<p>
+$ docker-compose up -d
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Start kibana7.x in Docker using Docker Compose.&quot;,&quot;hid&quot;:&quot;start_kibana7x_in_docker_using_docker_compose&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;6640-7544&quot;} -->
+<h3 class="sectionedit4" id="start_logstash7x_in_docker_using_docker_compose">Start logstash7.x in Docker using Docker Compose.</h3>
+<div class="level3">
+
+<p>
+Создаем папку logstash
+</p>
+
+<p>
+$ cd opt/
+</p>
+
+<p>
+$ mkdit logstash
+</p>
+
+<p>
+$ nano docker-compose.yml
+</p>
+
+<p>
+И приводим к виду:
+</p>
+<pre class="code">version: &#039;3.5&#039;
+services:
+  kibana:
+    image: &#039;docker.elastic.co/kibana/kibana:7.13.0&#039;
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elk-01:9200
+      - ELASTICSEARCH_HOSTS=http://elk-02:9200
+      - ELASTICSEARCH_HOSTS=http://elk-03:9200
+      - path.logs=/var/log/kibana
+      - bootstrap.memory_lock=true
+      - &quot;ES_JAVA_OPTS=-Xms2g -Xmx2g&quot;
+      - logs:/var/log/kibana/kibana.log
+    ports:
+      - 127.0.0.1:5601:5601
+    networks:
+      - elastic
+    volumes:
+      - /etc/kibana/config:/usr/share/logstash/config:rw
+  
+networks:
+  elastic:
+    # Use a custom driver
+       driver: bridge
+       name: elastic</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Start logstash7.x in Docker using Docker Compose.&quot;,&quot;hid&quot;:&quot;start_logstash7x_in_docker_using_docker_compose&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:4,&quot;range&quot;:&quot;7545-8399&quot;} -->
+<h3 class="sectionedit5" id="filebeat_7x">Filebeat 7.x</h3>
+<div class="level3">
+
+<p>
+Filebeat 7.x install clients machine<br />
+wget -qO - <a href="https://artifacts.elastic.co/GPG-KEY-elasticsearch" class="urlextern" title="https://artifacts.elastic.co/GPG-KEY-elasticsearch" rel="ugc nofollow">https://artifacts.elastic.co/GPG-KEY-elasticsearch</a> | sudo apt-key add -<br />
+sudo apt-get install apt-transport-https<br />
+echo «deb <a href="https://artifacts.elastic.co/packages/7.x/apt" class="urlextern" title="https://artifacts.elastic.co/packages/7.x/apt" rel="ugc nofollow">https://artifacts.elastic.co/packages/7.x/apt</a> stable main» | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list<br />
+sudo apt-get update &amp;&amp; sudo apt-get install filebeat
+</p>
+
+<p>
+filebeat.yml<br />
+Укажем одну секцию с логами от nginx. 
+</p>
+<pre class="code">ilebeat.registry.path: &#039;/var/lib/filebeat/registry&#039;
+filebeat.inputs:
+- input_type: log
+  paths:
+    # Прописываем путь до error лога nginx
+    - /var/log/nginx/error.log
+  tags: [&quot;nginx-error&quot;]
+  include_lines: [&#039;IP&#039;]
+output.logstash:
+  hosts: [&quot;&lt;ip или доменное имя&gt;:5044&quot;]
+  ssl.enabled: true
+  ssl.verification_mode: none
+  # При необходимости исправляем пути к сертификатам
+  ssl.certificate_authorities: [&#039;/etc/filebeat/ssl/ca.pem&#039;]
+  ssl.certificate: &#039;/etc/filebeat/ssl/logstash.pem&#039;
+  ssl.key: &#039;/etc/filebeat/ssl/logstash-key.pem&#039;
+filebeat.shutdown_timeout: 5s
+name: &quot;filebeat&quot;
+#tags: [ ]
+fields:
+  server_type: dmta
+#monitoring:
+#  enabled: false
+logging.level: debug
+logging.to_files: true
+logging.to_syslog: false
+logging.files:
+  # При необходимости исправляем путь до логов filebeat
+  path: /var/log/filebeat/
+  name: filebeat.log
+  keepfiles: 7
+  </pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Filebeat 7.x&quot;,&quot;hid&quot;:&quot;filebeat_7x&quot;,&quot;codeblockOffset&quot;:3,&quot;secid&quot;:5,&quot;range&quot;:&quot;8400-9831&quot;} -->
+<h3 class="sectionedit6" id="ssl_generate">SSL generate</h3>
+<div class="level3">
+
+<p>
+Создаем сертификаты для logstash и filebeat.<br />
+Сертификаты самоподписанные на 30 лет для внутреннего использования. <br />
+Можем использовать LetsEnCrypt с обновлением сертификатов каждые 3 месяца автоматически через CRON.
+</p>
+<pre class="code">#Create CA ssl
+openssl req \
+  -x509 \
+  -newkey rsa:4096 \
+  -keyout dmta-ca-key.pem \
+  -out dmta-ca-elk.pem \
+  -days 10950 \
+  -nodes
+ 
+#Create Self-singed ssl for logstash and filebeat
+openssl req \
+  -newkey rsa:4096 \
+  -keyout dmta-logstash-key.pem \
+  -out dmta-logstash.csr \
+  -nodes \
+&amp;&amp; \
+openssl x509 \
+  -req \
+  -in dmta-logstash.csr \
+  -CA dmta-ca-elk.pem \
+  -CAkey dmta-ca-key.pem \
+  -CAcreateserial \
+  -out dmta-logstash.pem \
+  -extensions req_ext \
+  -days 10950</pre>
+
+<p>
+Полученные сертификаты прописываем в конфигурационных файлах logstash.conf и filebeat.yml
+</p>
+
+<p>
+logstash.conf секция ssl
+</p>
+<pre class="code">input {
+        beats {
+                port =&gt; 5044
+                ssl =&gt; true
+                ssl_certificate_authorities =&gt; [&quot;/usr/share/logstash/config/ssl/ca.pem&quot;]
+                ssl_certificate =&gt; &quot;/usr/share/logstash/config/ssl/logstash.pem&quot;
+                ssl_key =&gt; &quot;/usr/share/logstash/config/ssl/logstash-key.pem&quot;
+                ssl_verify_mode =&gt; &quot;force_peer&quot;</pre>
+
+<p>
+fylebeat.yml секция ssl
+</p>
+<pre class="code">ssl:
+   enabled: true
+   verification_mode: full
+   certificate_authorities: [&#039;/etc/filebeat/ssl/ca.pem&#039;]
+   certificate: &#039;/etc/filebeat/ssl/logstash.pem&#039;
+   key: &#039;/etc/filebeat/ssl/logstash-key.pem&#039;</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;SSL generate&quot;,&quot;hid&quot;:&quot;ssl_generate&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:6,&quot;range&quot;:&quot;9832-11546&quot;} -->
+<h3 class="sectionedit7" id="elastic_7130_indexes">Elastic 7.13.0 indexes</h3>
+<div class="level3">
+
+<p>
+Алгоритм действий по созданию indexes:
+</p>
+
+<p>
+В нашем случае нужно отформатировать (парсинг)nginx errors логи. Для этого мы используем фильтр GROK.  
+</p>
+
+<p>
+Открываем kibana если не настроено имя  то &lt;<a href="https://ip:5601" class="urlextern" title="https://ip:5601" rel="ugc nofollow">https://ip:5601</a>&gt;<br />
+Нажимаем Dev Tools.<br />
+<a href="/lib/exe/detail.php?id=docker%3Aelk_filbeat&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_08-51-45.png" class="media" title="docker:снимок_экрана_от_2021-06-18_08-51-45.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=fac627&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_08-51-45.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+Вкладка Grok Debager. <br />
+<a href="/lib/exe/detail.php?id=docker%3Aelk_filbeat&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_09-51-05.png" class="media" title="docker:снимок_экрана_от_2021-06-18_09-51-05.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=5135de&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_09-51-05.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+В верхнее поле вставляем часть лога, в нижнем поле используем регулярные выражения (так же у Grok есть готовые паттерны ( <a href="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/ecs-v1/grok-patterns" class="urlextern" title="https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/ecs-v1/grok-patterns" rel="ugc nofollow">https://github.com/logstash-plugins/logstash-patterns-core/blob/master/patterns/ecs-v1/grok-patterns</a>) и настраиваем нужные нам данные, которые отфильтровываются в формате json.
+</p>
+
+<p>
+Идем во вкладку Console 
+</p>
+
+<p>
+Поля которые мы получили в формате json добавляем indexes и нажимаем кнопку Send Request (play).<br />
+Elastic index nginx-error
+</p>
+<pre class="code">PUT _component_template/component-nginx-error
+{
+  &quot;template&quot;: {
+    &quot;mappings&quot;: {
+      &quot;properties&quot;: {
+        &quot;@timestamp&quot;: {
+          &quot;type&quot;: &quot;date&quot;
+        }
+      }
+    }
+  }
+}
+PUT _index_template/nginx-error
+{
+   &quot;index_patterns&quot;: [&quot;nginx-error*&quot;],
+   &quot;template&quot;: {
+      &quot;settings&quot;: {
+        &quot;number_of_shards&quot;: 3,
+        &quot;number_of_replicas&quot;: 1
+      },
+     &quot;mappings&quot;: {
+        &quot;_source&quot;: {
+          &quot;enabled&quot;: true
+        },
+        &quot;properties&quot;: {
+          &quot;Date&quot;: {
+             &quot;type&quot;: &quot;date&quot;,
+             &quot;format&quot; : &quot;yyyy/MM/dd HH:mm:ss&quot;
+          },
+          &quot;error_type&quot;: {
+             &quot;type&quot;: &quot;text&quot;
+          },
+          &quot;error_log&quot;: {
+             &quot;type&quot;: &quot;text&quot;
+          }
+        }
+      },
+      &quot;aliases&quot;: {
+        &quot;mydata&quot;: { }
+      }
+    },
+  &quot;priority&quot;: 500,
+  &quot;composed_of&quot;: [&quot;component-nginx-error&quot;],
+  &quot;version&quot;: 3,
+  &quot;_meta&quot;: {
+    &quot;description&quot;: &quot;nginx-error&quot;
+  }
+}</pre>
+
+<p>
+Далее идем во вкладку Stack Managment –&gt; Index Pattern–&gt;Index Create
+</p>
+
+<p>
+Во втором поле выбираем <br />
+<a href="/lib/exe/detail.php?id=docker%3Aelk_filbeat&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_10-32-15.png" class="media" title="docker:снимок_экрана_от_2021-06-18_10-32-15.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=f7c2b3&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_10-32-15.png" class="media" alt="" width="400" /></a>
+</p>
+
+<p>
+Создаем Index.
+</p>
+
+<p>
+Чтобы вывод лога был читаемым мы можем лишние поля убрать .
+</p>
+
+<p>
+<a href="/lib/exe/detail.php?id=docker%3Aelk_filbeat&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_11-33-03.png" class="media" title="docker:снимок_экрана_от_2021-06-18_11-33-03.png"><img src="/lib/exe/fetch.php?w=400&amp;tok=8e239a&amp;media=docker:%D1%81%D0%BD%D0%B8%D0%BC%D0%BE%D0%BA_%D1%8D%D0%BA%D1%80%D0%B0%D0%BD%D0%B0_%D0%BE%D1%82_2021-06-18_11-33-03.png" class="media" alt="" width="400" /></a>
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Elastic 7.13.0 indexes&quot;,&quot;hid&quot;:&quot;elastic_7130_indexes&quot;,&quot;codeblockOffset&quot;:7,&quot;secid&quot;:7,&quot;range&quot;:&quot;11547-&quot;} -->

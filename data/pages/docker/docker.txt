@@ -1,2 +1,7 @@
+
+
+docker ps
 docker ps -a
 docker cp 741cc18d959e:/usr/share/elasticsearch/config /disk1
+docker logs -f <имя контейнера или ID>   #просмотр логов в реальном времени
+docker exec -it - -user root <имя или ID контейнера> bash

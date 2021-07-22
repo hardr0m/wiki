@@ -1,61 +1,20 @@
-1622008417	94.231.116.43	E	git:initial_settings_git	sa			106
-1622008535	94.231.116.43	E	git:initial_settings_git	sa			54
-1622008822	94.231.116.43	E	git:initial_settings_git	sa			48
-1622008834	94.231.116.43	E	git:initial_settings_git	sa	[4.Проверка настроек.Просмотр версии.] 		1
-1622008853	94.231.116.43	E	git:initial_settings_git	sa	[6.Просмотр истории изменений в репозитории.] 		1
-1622008859	94.231.116.43	E	git:initial_settings_git	sa	[4.Проверка настроек. Просмотр версии.] 		1
-1622009779	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1142
-1622009946	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		63
-1622010007	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		15
-1622010377	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1808
-1622010428	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		9
-1622010458	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		2
-1622010483	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1
-1622011141	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1226
-1622011157	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		4
-1622011263	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		139
-1622012326	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		60
-1622012390	94.231.116.43	E	git:initial_settings_git	sa			-13
-1622012439	94.231.116.43	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		-18
-1622024347	23.238.77.2	E	git:initial_settings_git	sa			174
-1622024482	23.238.77.2	E	git:initial_settings_git	sa			84
-1622024525	23.238.77.2	E	git:initial_settings_git	sa	[8. Определить состояние файлов] 		215
-1622024543	23.238.77.2	E	git:initial_settings_git	sa	[8. Определить состояние файлов] 		14
-1622024561	23.238.77.2	E	git:initial_settings_git	sa	[Вывод:] 		7
-1622024639	23.238.77.2	E	git:initial_settings_git	sa	[8. Определить состояние файлов] 		83
-1622024842	23.238.77.2	E	git:initial_settings_git	sa			131
-1622036720	23.238.77.2	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		5
-1622037011	23.238.77.2	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		-2
-1622037077	23.238.77.2	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1
-1622037117	23.238.77.2	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		1
-1622037142	23.238.77.2	E	git:initial_settings_git	sa			1
-1622037186	23.238.77.2	E	git:initial_settings_git	sa			2
-1622037197	23.238.77.2	E	git:initial_settings_git	sa	[5. Как получить помощь.] 		1
-1622039898	23.238.77.2	E	git:initial_settings_git	sa	[6. Просмотр истории изменений в репозитории.] 		2
-1622097450	23.238.77.2	E	git:initial_settings_git	sa	[9. Создание новой ветки.] 		48
-1622097484	23.238.77.2	E	git:initial_settings_git	sa	[9. Создание новой ветки ипереключение.] 		44
-1622182457	23.238.77.2	E	git:initial_settings_git	sa	[9. Создание новой ветки ипереключение.] 		104
-1622182465	23.238.77.2	E	git:initial_settings_git	sa	[9. Создание новой ветки ипереключение.] 		1
-1622184478	23.238.77.2	E	git:initial_settings_git	sa			417
-1622184698	23.238.77.2	E	git:initial_settings_git	sa	[10. Работа с изменениями в репозитории.] 		125
-1622189384	23.238.77.2	E	git:initial_settings_git	sa	[10. Работа с изменениями в репозитории.] 		321
-1622189396	23.238.77.2	E	git:initial_settings_git	sa	[10. Работа с изменениями в репозитории.] 		1
-1622470191	94.231.116.43	C	docker	sa	создано		74
-1622526185	94.231.116.43	E	start	sa			7
-1622528399	94.231.116.43	E	git:initial_settings_git	sa			79
-1622530504	94.231.116.43	E	git:initial_settings_git	sa			755
-1622531593	94.231.116.43	E	git:initial_settings_git	sa			327
-1622541754	94.231.116.43	E	git:initial_settings_git	sa			113
-1622541810	94.231.116.43	E	git:initial_settings_git	sa			12
-1622541868	94.231.116.43	E	git:initial_settings_git	sa	[6.Создание нового репозитория.] 		21
-1622541936	94.231.116.43	E	git:initial_settings_git	sa	[7. Просмотр истории изменений в репозитории.] 		4
-1622541962	94.231.116.43	E	git:initial_settings_git	sa	[7. Просмотр истории изменений в репозитории.] 		1
-1622553682	94.231.116.43	E	git:initial_settings_git	sa	[13.Объединение веток.] 		143
-1622553705	94.231.116.43	E	git:initial_settings_git	sa	[13.Объединение веток. Смещение начало ветки.] 		4
-1622554379	94.231.116.43	E	git:initial_settings_git	sa			186
-1622554589	94.231.116.43	E	git:initial_settings_git	sa	[14.Управление версиями (версионирование).] 		72
-1622555312	94.231.116.43	E	git:initial_settings_git	sa	[14.Управление версиями (версионирование).] 		50
-1622555321	94.231.116.43	E	git:initial_settings_git	sa	[14.Управление версиями (версионирование).] 		-1
-1622555633	94.231.116.43	E	git:initial_settings_git	sa	[14.Управление версиями (версионирование).] 		119
-1622556798	94.231.116.43	E	git:initial_settings_git	sa			196
-1622556906	94.231.116.43	E	git:initial_settings_git	sa			56
+1625128221	23.238.77.2	E	docker:elk_filbeat	sa	[Filebeat 7.x] 		16
+1625647445	23.238.77.2	E	docker:elk_filbeat	sa			724
+1625647683	23.238.77.2	E	docker:elk_filbeat	sa	[SSL generate] 		818
+1625648185	23.238.77.2	E	docker:elk_filbeat	sa	[Filebeat 7.x] 		1067
+1625649452	23.238.77.2	E	docker:elk_filbeat	sa			1228
+1625649552	23.238.77.2	E	docker:elk_filbeat	sa	[SSL generate] 		171
+1625649718	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		953
+1625649870	23.238.77.2	E	docker:elk_filbeat	sa			3
+1625649933	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625649971	23.238.77.2	E	docker:elk_filbeat	sa			-72
+1625650008	23.238.77.2	E	docker:elk_filbeat	sa			-89
+1625650060	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		4
+1625650088	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-1
+1625650141	23.238.77.2	E	docker:elk_filbeat	sa			5
+1625650169	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625650207	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625650254	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		2
+1625650295	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		67
+1625650338	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		71
+1625650597	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		415

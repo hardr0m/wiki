@@ -1,0 +1,26 @@
+1625055629	23.238.77.2	C	docker:elk_filbeat	sa	создано		2537
+1625055653	23.238.77.2	E	docker:elk_filbeat	sa			59
+1625121435	23.238.77.2	E	docker:elk_filbeat	sa			905
+1625121587	23.238.77.2	E	docker:elk_filbeat	sa			857
+1625121737	23.238.77.2	E	docker:elk_filbeat	sa			4042
+1625127626	23.238.77.2	E	docker:elk_filbeat	sa			349
+1625128221	23.238.77.2	E	docker:elk_filbeat	sa	[Filebeat 7.x] 		16
+1625647445	23.238.77.2	E	docker:elk_filbeat	sa			724
+1625647683	23.238.77.2	E	docker:elk_filbeat	sa	[SSL generate] 		818
+1625648185	23.238.77.2	E	docker:elk_filbeat	sa	[Filebeat 7.x] 		1067
+1625649452	23.238.77.2	E	docker:elk_filbeat	sa			1228
+1625649552	23.238.77.2	E	docker:elk_filbeat	sa	[SSL generate] 		171
+1625649718	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		953
+1625649870	23.238.77.2	E	docker:elk_filbeat	sa			3
+1625649933	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625649971	23.238.77.2	E	docker:elk_filbeat	sa			-72
+1625650008	23.238.77.2	E	docker:elk_filbeat	sa			-89
+1625650060	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		4
+1625650088	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-1
+1625650141	23.238.77.2	E	docker:elk_filbeat	sa			5
+1625650169	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625650207	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
+1625650254	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		2
+1625650295	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		67
+1625650338	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		71
+1625650597	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		415
