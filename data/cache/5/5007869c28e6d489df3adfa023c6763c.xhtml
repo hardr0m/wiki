@@ -4,5 +4,7 @@ docker ps<br />
 docker ps -a<br />
 docker cp 741cc18d959e:/usr/share/elasticsearch/config /disk1<br />
 docker logs -f &lt;имя контейнера или ID&gt;   #просмотр логов в реальном времени<br />
-docker exec -it - -user root &lt;имя или ID контейнера&gt; bash
+docker exec -it - -user root &lt;имя или ID контейнера&gt; bash<br />
+docker system prune #удалить все остановленные контейнеры <br />
+docker exec -ti имя  контейнера bash
 </p>

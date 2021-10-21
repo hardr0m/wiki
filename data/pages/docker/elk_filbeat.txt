@@ -38,7 +38,7 @@ $ sudo chmod +x /usr/local/bin/docker-compose
 
 Затем мы проверим, что установка прошла успешно, с помощью проверки версии:
 
-$ docker-compose --version
+$ docker-compose - -version
 
 
 
