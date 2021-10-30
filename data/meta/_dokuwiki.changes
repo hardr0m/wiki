@@ -1,20 +1,20 @@
-1625648185	23.238.77.2	E	docker:elk_filbeat	sa	[Filebeat 7.x] 		1067
-1625649452	23.238.77.2	E	docker:elk_filbeat	sa			1228
-1625649552	23.238.77.2	E	docker:elk_filbeat	sa	[SSL generate] 		171
-1625649718	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		953
-1625649870	23.238.77.2	E	docker:elk_filbeat	sa			3
-1625649933	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
-1625649971	23.238.77.2	E	docker:elk_filbeat	sa			-72
-1625650008	23.238.77.2	E	docker:elk_filbeat	sa			-89
-1625650060	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		4
-1625650088	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-1
-1625650141	23.238.77.2	E	docker:elk_filbeat	sa			5
-1625650169	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
-1625650207	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		-2
-1625650254	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		2
-1625650295	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		67
-1625650338	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		71
-1625650597	23.238.77.2	E	docker:elk_filbeat	sa	[Elastic 7.13.0 indexes] 		415
-1630658258	23.238.77.2	E	docker:docker	sa			91
-1632588422	23.238.77.2	E	docker:docker	sa			50
-1634539451	23.238.77.2	E	docker:elk_filbeat	sa			1
+1634823145	127.0.0.1	E	gitlab:gitlab_install_and_upgrade		внешнее изменение		16
+1634823588	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			840
+1634823632	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			12
+1634825787	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		236
+1634826536	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		107
+1634826547	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		1
+1635161805	127.0.0.1	E	postgresql:postgresql		внешнее изменение		32
+1635162257	94.231.116.43	E	postgresql:postgresql	sa			163
+1635162923	94.231.116.43	E	postgresql:postgresql	sa			595
+1635163059	94.231.116.43	E	postgresql:postgresql	sa			9
+1635163092	94.231.116.43	E	postgresql:postgresql	sa			4
+1635163463	94.231.116.43	E	postgresql:postgresql	sa			863
+1635163525	94.231.116.43	E	postgresql:postgresql	sa			13
+1635163625	94.231.116.43	E	postgresql:postgresql	sa			80
+1635163765	94.231.116.43	E	postgresql:postgresql	sa			3
+1635171469	94.231.116.43	E	docker:docker	sa			519
+1635172157	94.231.116.43	E	docker:docker	sa			497
+1635232860	127.0.0.1	E	linux:linux_useful_commands		внешнее изменение		69
+1635232987	94.231.116.43	E	linux:linux_useful_commands	sa			64
+1635233059	94.231.116.43	E	linux:linux_useful_commands	sa			93

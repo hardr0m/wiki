@@ -9,3 +9,9 @@ docker:docker
 docker:elk_filbeat
 docker:docker-compose
 docker:swarm
+database
+mysql
+gitlab:gitlab_install_and_upgrade
+postgresql:postgresql
+linux:linux_useful_commands
+mysql:mysql

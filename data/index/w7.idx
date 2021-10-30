@@ -46,3 +46,10 @@ debager
 console
 aliases
 pattern
+windows
+openssh
+postfix
+upgrade
+restart
+sqlfile
+mylogin

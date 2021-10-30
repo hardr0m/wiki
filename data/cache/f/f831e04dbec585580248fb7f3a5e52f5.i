@@ -1,0 +1,8 @@
+a:19:{i:0;a:3:{i:0;s:14:"document_start";i:1;a:0:{}i:2;i:0;}i:1;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:14:"Basic commands";i:1;i:1;i:2;i:1;}i:2;i:1;}i:2;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:1;}i:2;i:1;}i:3;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:29;}i:4;a:3:{i:0;s:6:"header";i:1;a:3:{i:0;s:58:"Открываем терминал (Windows или Linux)";i:1;i:3;i:2;i:29;}i:2;i:29;}i:5;a:3:{i:0;s:12:"section_open";i:1;a:1:{i:0;i:3;}i:2;i:29;}i:6;a:3:{i:0;s:6:"p_open";i:1;a:0:{}i:2;i:29;}i:7;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:111:"export:
+ mysqldump -u mysql_user -p DATABASE_NAME > backup.sql
+или 
+ mysqldump -u root -p password dbname > ";}i:2;i:99;}i:8;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:210;}i:9;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"D:\db\db_backup.sql";}i:2;i:211;}i:10;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:230;}i:11;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:111:"
+import:
+ mysqldump -u mysql_user -p DATABASE_NAME < backup.sql
+или
+ mysqldump -u root -p password dbname < ";}i:2;i:231;}i:12;a:3:{i:0;s:18:"doublequoteopening";i:1;a:0:{}i:2;i:342;}i:13;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:19:"D:\db\db_backup.sql";}i:2;i:343;}i:14;a:3:{i:0;s:18:"doublequoteclosing";i:1;a:0:{}i:2;i:362;}i:15;a:3:{i:0;s:5:"cdata";i:1;a:1:{i:0;s:0:"";}i:2;i:363;}i:16;a:3:{i:0;s:7:"p_close";i:1;a:0:{}i:2;i:363;}i:17;a:3:{i:0;s:13:"section_close";i:1;a:0:{}i:2;i:363;}i:18;a:3:{i:0;s:12:"document_end";i:1;a:0:{}i:2;i:363;}}

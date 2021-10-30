@@ -1,8 +1,32 @@
 
 <p>
-docker ps<br />
-docker ps -a<br />
-docker cp 741cc18d959e:/usr/share/elasticsearch/config /disk1<br />
+Просмотр запущенных контейнеров:
+</p>
+<pre class="code">docker ps</pre>
+
+<p>
+Просмотр всех имеющихся контейнеров:
+</p>
+<pre class="code">docker ps -a</pre>
+
+<p>
+Копировать из контейнера на хост
+</p>
+<pre class="code">docker cp 741cc18d959e:/usr/share/elasticsearch/config /disk1</pre>
+
+<p>
+Если вы хотите скопировать файлы из вашей хост-системы в контейнер, вы должны использовать команду docker cp, например:
+</p>
+<pre class="code">docker cp host_source_path container:destination_path</pre>
+
+<p>
+Копировать файлы и каталоги с оригинальными атрибутами<br />
+Вы можете использовать режим архива при копировании с опцией -a. При этом вы можете скопировать все права доступа к файлу, UID и GID исходного файла.
+</p>
+<pre class="code">docker cp -a host_source_path container:destination_path
+docker cp -a container:source_path host_destination_path</pre>
+
+<p>
 docker logs -f &lt;имя контейнера или ID&gt;   #просмотр логов в реальном времени<br />
 docker exec -it - -user root &lt;имя или ID контейнера&gt; bash<br />
 docker system prune #удалить все остановленные контейнеры <br />

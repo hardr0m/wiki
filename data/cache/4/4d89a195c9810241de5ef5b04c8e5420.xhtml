@@ -1,0 +1,46 @@
+
+<h2 class="sectionedit1" id="install_gitlab_and_upgrade">Install Gitlab and upgrade.</h2>
+<div class="level2">
+
+<p>
+Нужно установить программное обеспечение которое необходимо для установки и работы GitLab:<br />
+sudo apt install ca-certificates curl openssh-server postfix
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install Gitlab and upgrade.&quot;,&quot;hid&quot;:&quot;install_gitlab_and_upgrade&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-269&quot;} -->
+<h3 class="sectionedit2" id="установка_gitlab">Установка GitLab</h3>
+<div class="level3">
+
+<p>
+Для установки GitLab будем использовать готовый скрипт, который предоставляет  GitLab CE:<br />
+curl -LO <a href="https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh" class="urlextern" title="https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh" rel="ugc nofollow">https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</a>
+</p>
+
+<p>
+Запускаем скрипт на выполнение для настройки сервера, чтобы можно было управлять пакетами с помощью apt:<br />
+sudo bash script.deb.sh
+</p>
+
+<p>
+Устанавливаем нужную нам версию:<br />
+sudo apt-get install gitlab-ce=12.9.2-ce.0<br />
+Обновляем<br />
+sudo apt-get install gitlab-ce=12.10.0-ce.0<br />
+И далее по списку <br />
+<a href="https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md" class="urlextern" title="https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md" rel="ugc nofollow">https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md</a>
+</p>
+
+<p>
+После каждого обновления <br />
+ sudo gitlab-ctl restart
+</p>
+
+<p>
+Возможно потребуется:<br />
+ sudo gitlab-ctl reconfigure<br />
+ sudo gitlab-ctl restart postgresql
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 GitLab&quot;,&quot;hid&quot;:&quot;\u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430_gitlab&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;270-&quot;} -->

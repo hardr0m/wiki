@@ -5,3 +5,6 @@ certificate
 authorities
 letsencrypt
 description
+reconfigure
+masterlogin
+destination

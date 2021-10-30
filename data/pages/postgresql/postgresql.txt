@@ -1,0 +1,45 @@
+===== Основные команды =====
+
+
+Заходим 
+
+# ​su postgres
+
+Чтобы создать базу данных необходимо написать стандартную команду SQL:
+<code>
+CREATE DATABASE test_db;
+</code>
+Чтобы создать пользователя воспользуйтесь командой:
+<code>
+CREATE USER test_user WITH password 'qwerty';
+</code>
+
+Но на данную базу данных у пользователя не будет прав. Чтобы создать базу с владельцем добавьте опциональный параметр OWNER:
+<code>
+CREATE DATABASE test_database OWNER test_user;
+</code>
+Можно также дать права на базу пользователю командой:
+<code>
+GRANT ALL privileges ON DATABASE test_db TO test_user;
+</code>
+Для удаления базы данных можно воспользоваться командой:
+<code>
+DROP DATABASE test_db;
+</code>
+
+Экспорт:  
+<code>
+pg_dump -U username -h localhost databasename >> sqlfile.sql
+
+pg_dump -Fc -v - -host=localhost - -username=zabbix - -dbname=zabbix_db -f zabbix_db.dump  
+
+pg_dump -Fc -v - -host=localhost - -username=masterlogin - -dbname=testdb -f testdb.dump
+</code>
+
+Импорт:
+<code>
+# psql < sqlfile.sql 
+
+pg_restore -v - -no-owner - -host=mydemoserver.postgres.database.azure.com - -port=5432 - -username=mylogin@mydemoserver - -dbname=mypgsqldb testdb.dump
+</code>
+//При включении параметра - -no-owner все объекты, созданные во время восстановления, будут присвоены пользователю, отмеченному - -username.//__Подчёркнутый__

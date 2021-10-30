@@ -18,3 +18,7 @@ keepfiles
 component
 timestamp
 managment
+mysqldump
+changelog
+localhost
+mypgsqldb

@@ -1,0 +1,29 @@
+===== Install Gitlab and upgrade. =====
+
+Нужно установить программное обеспечение которое необходимо для установки и работы GitLab:
+sudo apt install ca-certificates curl openssh-server postfix
+
+
+
+==== Установка GitLab ====
+
+
+Для установки GitLab будем использовать готовый скрипт, который предоставляет  GitLab CE:
+curl -LO https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh
+
+Запускаем скрипт на выполнение для настройки сервера, чтобы можно было управлять пакетами с помощью apt:
+sudo bash script.deb.sh
+
+Устанавливаем нужную нам версию:
+sudo apt-get install gitlab-ce=12.9.2-ce.0
+Обновляем
+sudo apt-get install gitlab-ce=12.10.0-ce.0
+И далее по списку 
+https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md
+
+После каждого обновления 
+ sudo gitlab-ctl restart
+
+Возможно потребуется:
+ sudo gitlab-ctl reconfigure
+ sudo gitlab-ctl restart postgresql

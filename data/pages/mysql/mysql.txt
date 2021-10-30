@@ -1,0 +1,12 @@
+======Basic commands======
+
+==== Открываем терминал (Windows или Linux) ====
+
+export:
+ mysqldump -u mysql_user -p DATABASE_NAME > backup.sql
+или 
+ mysqldump -u root -p password dbname > "D:\db\db_backup.sql"
+import:
+ mysqldump -u mysql_user -p DATABASE_NAME < backup.sql
+или
+ mysqldump -u root -p password dbname < "D:\db\db_backup.sql"

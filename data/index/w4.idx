@@ -132,3 +132,12 @@ cron
 yyyy
 text
 meta
+foss
+dump
+psql
+host
+5432
+test
+но
+drop
+вы

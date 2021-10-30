@@ -68,3 +68,8 @@ png
 ecs
 put
 500
+sql
+ctl
+uid
+gid
+cat
