@@ -11,3 +11,90 @@
 cat file | grep -v &#039;^#&#039;</pre>
 
 </div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041f\u043e\u043b\u0435\u0437\u043d\u044b\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b linux.&quot;,&quot;hid&quot;:&quot;\u043f\u043e\u043b\u0435\u0437\u043d\u044b\u0435_\u043a\u043e\u043c\u0430\u043d\u0434\u044b_linux&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-229&quot;} -->
+<h2 class="sectionedit2" id="scp">SCP</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;SCP&quot;,&quot;hid&quot;:&quot;scp&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:2,&quot;range&quot;:&quot;230-246&quot;} -->
+<h3 class="sectionedit3" id="копирование_файлов_с_удаленного_компа_и_наоборот">Копирование файлов с удаленного компа (и наоборот)</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="с_локального_компьютера_на_удаленный">С локального компьютера на удаленный</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp /home/test.txt root@123.123.123.123:/directory</pre>
+
+<p>
+Файл test.txt будет скопирован на хост 123.123.123.123 в директорию «/directory».
+</p>
+
+</div>
+
+<h4 id="с_удаленного_компьютера_на_локальный">С удаленного компьютера на локальный</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp root@123.123.123.123:/home/test.txt /directory</pre>
+
+<p>
+Файл test.txt будет загружен с сервера 123.123.123.123 на локальный компьютер в папку «/directory».
+</p>
+
+</div>
+
+<h4 id="как_подключиться_к_серверу_по_нестандартному_порту">Как подключиться к серверу по нестандартному порту</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp -P 12345 /home/test.txt root@123.123.123.123:/directory</pre>
+
+<p>
+Эта команда подключается по порту 12345 к серверу 123.123.123.123 и копирует на него файл «test.txt» с локального компьютера в директорию «/directory».
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432 \u0441 \u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u0430 (\u0438 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442)&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432_\u0441_\u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e_\u043a\u043e\u043c\u043f\u0430_\u0438_\u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;247-1425&quot;} -->
+<h3 class="sectionedit4" id="rsync">RSYNC</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="изменить_имя_хоста">Изменить имя хоста</h4>
+<div class="level4">
+<pre class="code"> 
+hostnamectl set-hostname NewHostName</pre>
+
+<p>
+sysctl -a | grep free<br />
+dmesg 2&gt;&amp;1 | grep «Killed»<br />
+dmesg 2&gt;&amp;1 | grep «Killed» | awk &#039;{print 9 « » $8}&#039;
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RSYNC&quot;,&quot;hid&quot;:&quot;rsync&quot;,&quot;codeblockOffset&quot;:4,&quot;secid&quot;:4,&quot;range&quot;:&quot;1426-1643&quot;} -->
+<h3 class="sectionedit5" id="ip_vs_ifconfig">IP VS IFCONFIG</h3>
+<div class="level3">
+<pre class="code">https://inai.de/2008/02/19</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;IP VS IFCONFIG&quot;,&quot;hid&quot;:&quot;ip_vs_ifconfig&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:5,&quot;range&quot;:&quot;1644-1711&quot;} -->
+<h3 class="sectionedit6" id="генерировать_и_переносить_ключи">Генерировать и переносить ключи.</h3>
+<div class="level3">
+
+<p>
+ssh-keygen<br />
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0413\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c \u043a\u043b\u044e\u0447\u0438.&quot;,&quot;hid&quot;:&quot;\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c_\u0438_\u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c_\u043a\u043b\u044e\u0447\u0438&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:6,&quot;range&quot;:&quot;1712-&quot;} -->

@@ -1,1 +1,5 @@
  
+==== Включить сайт (символьная ссылка) ====
+<code>
+ln -s /etc/nginx/sites-available/sitename /etc/nginx/sites-enabled/
+</code>

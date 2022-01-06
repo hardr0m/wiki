@@ -1,0 +1,17 @@
+==== Postfix remove received header ====
+
+<code>
+vi /etc/postfix/header_checks
+/^Received:.*with ESMTPSA/ IGNORE
+/^Received:/ IGNORE
+/^X-Originating-IP:/ IGNORE
+/^X-Mailer:/ IGNORE
+/^Mime-Version:/ IGNORE
+
+vi /etc/postfix/main.cf
+mime_header_checks = regexp:/etc/postfix/header_checks
+header_checks = regexp:/etc/postfix/header_checks
+
+postmap /etc/postfix/header_checks
+postfix reload
+</code>

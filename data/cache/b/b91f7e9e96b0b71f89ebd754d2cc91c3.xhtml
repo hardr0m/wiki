@@ -1,0 +1,92 @@
+
+<h3 class="sectionedit1" id="добавление_домена_в_белый_список_антиспама_zimbra">Добавление домена в белый список антиспама Zimbra</h3>
+<div class="level3">
+
+<p>
+Недавно столкнулся с проблемой, что Gmail попал в черный список DNSBL.ORG, который я использую для проверки на спам в Zimbra.  Чтобы исправить эту ситуацию необходимо:
+</p>
+
+<p>
+1. su zimbra<br />
+2. nano /opt/zimbra/conf/amavisd.conf.in<br />
+3. Ищем строку, которая начинается с:<br />
+{ # a hash-type lookup table (associative array)<br />
+и добавляем доверенный домен перед всеми остальными записями:
+</p>
+
+<p>
+&#039;gmail.com&#039;     ⇒                  -10.0,
+</p>
+
+<p>
+4. Сохраняем файл и перезапускаем антиспам командой:
+</p>
+<pre class="code">zmamavisdctl stop &amp;&amp; zmamavisdctl start</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0414\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0434\u043e\u043c\u0435\u043d\u0430 \u0432 \u0431\u0435\u043b\u044b\u0439 \u0441\u043f\u0438\u0441\u043e\u043a \u0430\u043d\u0442\u0438\u0441\u043f\u0430\u043c\u0430 Zimbra&quot;,&quot;hid&quot;:&quot;\u0434\u043e\u0431\u0430\u0432\u043b\u0435\u043d\u0438\u0435_\u0434\u043e\u043c\u0435\u043d\u0430_\u0432_\u0431\u0435\u043b\u044b\u0439_\u0441\u043f\u0438\u0441\u043e\u043a_\u0430\u043d\u0442\u0438\u0441\u043f\u0430\u043c\u0430_zimbra&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-868&quot;} -->
+<h3 class="sectionedit2" id="блокировка_почтовых_доменов_в_zimbra">Блокировка почтовых доменов в Zimbra</h3>
+<div class="level3">
+
+<p>
+Бывает так, что антиспам пропускает письма с ненужным содержанием и никакого желания кроме как заблокировать домен отправителя не возникает. Делается все довольно просто.
+</p>
+
+<p>
+Открываем для редактирования файл <em>/opt/zimbra/conf/salocal.cf.in</em>/<br />
+Находим секцию # accept email from zimbra support and forumns
+</p>
+
+<p>
+Добавляем блокируемый домен (например блокируем всю почту из домена com.ua)
+</p>
+<pre class="code">blacklist_from *.com.ua</pre>
+
+<p>
+Сохраняем файл и перезапускаем Zimbra командой
+</p>
+<pre class="code">zmcontrol stop &amp;&amp; zmcontrol start</pre>
+
+<p>
+Таким же образом можно добавить домен, почту от которого нужно всегда пропускать (например почту от пользователей своего домена). В той же секции необходимо добавить
+</p>
+<pre class="code">whitelist_from *@zimbradomain.dom</pre>
+
+</div>
+
+<h4 id="whitelist_blacklist_a_domain_or_email_address_on_zimbra_amavis">Whitelist | Blacklist a domain or email address on Zimbra Amavis</h4>
+<div class="level4">
+
+<p>
+Create two files that will store the domains and email addresses you wish to whitelist or blacklist.
+</p>
+<pre class="code">$ sudo touch /opt/zimbra/conf/{whitelist,blacklist}</pre>
+
+<p>
+All whitelists will be in the file /opt/zimbra/conf/whitelist, the blacklisted will be in the file <br />
+Example:
+</p>
+<pre class="code">/opt/zimbra/conf/blacklist
+$ cat /opt/zimbra/conf/whitelist
+jmutai@example.com example.org
+$ cat /opt/zimbra/conf/blacklist
+spammer@example.com
+fakedomain.com</pre>
+
+<p>
+Now you need to modify your /opt/zimbra/conf/amavisd.conf.in configuration file have checks on the two files we just added above.
+</p>
+<pre class="code">read_hash(%whitelist_sender, &#039;/opt/zimbra/conf/whitelist&#039;);
+read_hash(%blacklist_sender, &#039;/opt/zimbra/conf/blacklist&#039;);</pre>
+
+<p>
+After saving the changes, restart the amavis service.
+</p>
+<pre class="code">sudo su - zimbra -c &quot;zmamavisdctl restart&quot;</pre>
+
+<p>
+You can now retry sending email from a blocked domain/address or whitelisted ones and see if the email is delivered.
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0411\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0430 \u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0445 \u0434\u043e\u043c\u0435\u043d\u043e\u0432 \u0432 Zimbra&quot;,&quot;hid&quot;:&quot;\u0431\u043b\u043e\u043a\u0438\u0440\u043e\u0432\u043a\u0430_\u043f\u043e\u0447\u0442\u043e\u0432\u044b\u0445_\u0434\u043e\u043c\u0435\u043d\u043e\u0432_\u0432_zimbra&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:2,&quot;range&quot;:&quot;869-&quot;} -->

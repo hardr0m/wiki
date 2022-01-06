@@ -27,8 +27,17 @@
 docker cp -a container:source_path host_destination_path</pre>
 
 <p>
-docker logs -f &lt;имя контейнера или ID&gt;   #просмотр логов в реальном времени<br />
-docker exec -it - -user root &lt;имя или ID контейнера&gt; bash<br />
-docker system prune #удалить все остановленные контейнеры <br />
-docker exec -ti имя  контейнера bash
+Посмотреть логи
 </p>
+<pre class="code">docker logs -f &lt;имя контейнера или ID&gt;   #просмотр логов в реальном времени</pre>
+
+<p>
+Зайти в контейнер
+</p>
+<pre class="code">docker exec -it - -user root &lt;имя или ID контейнера&gt; bash   #зайти под определенным пользователем  
+docker exec -ti имя  контейнера bash</pre>
+
+<p>
+Удалить все остановленные контейнеры
+</p>
+<pre class="code">docker system prune </pre>

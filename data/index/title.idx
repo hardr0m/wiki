@@ -3,7 +3,7 @@ DEVOPS
 
 
 Начальные настройки Git
-
+Включить сайт (символьная ссылка)
 
 
 Preparing the ElasticSearch server
@@ -15,3 +15,7 @@ Install Gitlab and upgrade.
 Основные команды
 Полезные команды linux.
 Basic commands
+Postfix remove received header
+Добавление домена в белый список антиспама Zimbra
+Настройка Zabbix Proxy с помощью docker-compose
+

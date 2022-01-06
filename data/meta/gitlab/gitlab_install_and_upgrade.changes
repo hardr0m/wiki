@@ -4,3 +4,16 @@
 1634825787	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		236
 1634826536	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		107
 1634826547	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		1
+1636097662	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			265
+1636098214	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Backup & restore] 		89
+1636105300	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			97
+1636392019	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			137
+1636400636	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			421
+1636445679	23.238.77.2	E	gitlab:gitlab_install_and_upgrade	sa			108
+1636460070	23.238.77.2	E	gitlab:gitlab_install_and_upgrade	sa			321
+1636534042	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		84
+1636806165	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		141
+1636813183	23.238.77.2	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		8
+1638249846	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Возможные ошибки и их исправления] 		102
+1638249898	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		59
+1638249930	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			9

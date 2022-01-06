@@ -1,5 +1,18 @@
 ======Basic commands======
 
+=== Установка и настройка Ubuntu Server 20.04 ===
+
+sudo apt install mysql-server
+
+Настройка
+
+sudo mysql_secure_installation
+
+Вход, если настроена аутентификация для root
+$ mysql -u root -p
+Если не настроена
+$ mysql
+
 ==== Открываем терминал (Windows или Linux) ====
 
 export:

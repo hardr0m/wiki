@@ -22,3 +22,16 @@ mysqldump
 changelog
 localhost
 mypgsqldb
+undefined
+srvmanage
+blacklist
+zmcontrol
+whitelist
+localtime
+snmptraps
+character
+collation
+directory
+addresses
+delivered
+ipaddress

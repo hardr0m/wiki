@@ -1,0 +1,18 @@
+
+<h3 class="sectionedit1" id="postfix_remove_received_header">Postfix remove received header</h3>
+<div class="level3">
+<pre class="code">vi /etc/postfix/header_checks
+/^Received:.*with ESMTPSA/ IGNORE
+/^Received:/ IGNORE
+/^X-Originating-IP:/ IGNORE
+/^X-Mailer:/ IGNORE
+/^Mime-Version:/ IGNORE
+
+vi /etc/postfix/main.cf
+mime_header_checks = regexp:/etc/postfix/header_checks
+header_checks = regexp:/etc/postfix/header_checks
+
+postmap /etc/postfix/header_checks
+postfix reload</pre>
+
+</div>

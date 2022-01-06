@@ -20,10 +20,62 @@ sudo apt-get install gitlab-ce=12.9.2-ce.0
 sudo apt-get install gitlab-ce=12.10.0-ce.0
 И далее по списку 
 https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md
+12.9.2—> 12.10.14—>13.0.0-->13.1.0 —>13.9.0—>14.0.0-->14.0.5—>14.1.0—>14.2.0—>14.3.0-->14.4.0-->14.4.2
+
+Критичные обновления 13.9.0 и 14.0.5
+
+При обновлении есть нюансы, связанные с дополнительными действиями.
 
 После каждого обновления 
- sudo gitlab-ctl restart
+sudo gitlab-ctl restart
 
 Возможно потребуется:
  sudo gitlab-ctl reconfigure
  sudo gitlab-ctl restart postgresql
+
+
+==== Backup & restore ====
+
+gitlab-ctl start
+Обязательно перед восстановлением остановить:
+
+gitlab-ctl stop unicorn
+gitlab-ctl stop sidekiq
+
+gitlab-rake gitlab:backup:restore BACKUP=1567330524_2019_09_01_11.10.8   #Указываем префикс архива с номером версии
+gitlab-ctl restart
+
+Проверка после восстановления
+gitlab-rake gitlab:check SANITIZE=true
+
+Проверка прав на папку (например, для бэкапов)
+sudo -u git -i bash
+cd /home/admin/backups/gitlab/
+
+==== Возможные ошибки и их исправления ====
+=== Ошибка ===
+
+Running handlers:
+There was an error running gitlab-ctl reconfigure:
+
+undefined method `gitlab' for nil:NilClass
+
+=== Исправить ===
+<code>
+cd /etc/gitlab
+mv gitlab.rb gitlab.rb.bak
+touch gitlab.rb
+gitlab-ctl reconfigure
+</code>
+Причина в неправильном конфигурировании  gitlab.rb
+
+Не стартует unicorn
+timeout: run: unicorn: (pid 25579) 2411s
+ps -ef | grep unicorn
+
+Kill -9 <pid>
+
+С версии 14.0.0 на 14.0.5 в фоновом режиме начнется миграция базы данных, посмотреть можно по ссылке
+http://gitlab.srvmanage.net/admin/background_migrations
+Никаких обновлений делать не надо до полной миграции. 
+c 14 версии unicorn заменила puma (unicorn не поддерживается). 

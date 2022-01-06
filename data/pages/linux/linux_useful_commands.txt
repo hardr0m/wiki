@@ -7,3 +7,56 @@ grep -vE '(^[[:space:]]*([#;!].*)?$)' file
 
 cat file | grep -v '^#'
 </code>
+
+
+===== SCP =====
+
+==== Копирование файлов с удаленного компа (и наоборот) ====
+
+=== С локального компьютера на удаленный ===
+
+
+Пример команды:
+<code>
+scp /home/test.txt root@123.123.123.123:/directory
+</code>
+Файл test.txt будет скопирован на хост 123.123.123.123 в директорию «/directory».
+
+=== С удаленного компьютера на локальный ===
+
+Пример команды:
+<code>
+scp root@123.123.123.123:/home/test.txt /directory
+</code>
+Файл test.txt будет загружен с сервера 123.123.123.123 на локальный компьютер в папку «/directory».
+
+=== Как подключиться к серверу по нестандартному порту ===
+
+Пример команды:
+<code>
+scp -P 12345 /home/test.txt root@123.123.123.123:/directory
+</code>
+Эта команда подключается по порту 12345 к серверу 123.123.123.123 и копирует на него файл «test.txt» с локального компьютера в директорию «/directory».
+
+==== RSYNC ====
+
+
+=== Изменить имя хоста ===
+<code> 
+hostnamectl set-hostname NewHostName
+</code>
+
+sysctl -a | grep free
+dmesg 2>&1 | grep "Killed"
+dmesg 2>&1 | grep "Killed" | awk '{print 9 " " $8}'
+
+
+==== IP VS IFCONFIG ====
+<code>
+https://inai.de/2008/02/19
+</code>
+
+==== Генерировать и переносить ключи. ====
+
+ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port

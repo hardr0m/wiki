@@ -8,3 +8,9 @@ description
 reconfigure
 masterlogin
 destination
+originating
+associative
+blacklisted
+whitelisted
+hostnamectl
+newhostname

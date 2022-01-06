@@ -15,3 +15,7 @@ gitlab:gitlab_install_and_upgrade
 postgresql:postgresql
 linux:linux_useful_commands
 mysql:mysql
+mail_servers:postfix
+mail_servers:zimbra
+zabbix:zabbix
+jenkins:jenkins

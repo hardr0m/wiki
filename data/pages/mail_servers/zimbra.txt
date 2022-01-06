@@ -1,0 +1,68 @@
+==== Добавление домена в белый список антиспама Zimbra ====
+
+
+Недавно столкнулся с проблемой, что Gmail попал в черный список DNSBL.ORG, который я использую для проверки на спам в Zimbra.  Чтобы исправить эту ситуацию необходимо:
+
+1. su zimbra
+2. nano /opt/zimbra/conf/amavisd.conf.in
+3. Ищем строку, которая начинается с:
+{ # a hash-type lookup table (associative array)
+и добавляем доверенный домен перед всеми остальными записями:
+
+'gmail.com'     =>                  -10.0,
+
+4. Сохраняем файл и перезапускаем антиспам командой:
+<code>
+zmamavisdctl stop && zmamavisdctl start
+</code>
+
+
+==== Блокировка почтовых доменов в Zimbra ====
+
+
+Бывает так, что антиспам пропускает письма с ненужным содержанием и никакого желания кроме как заблокировать домен отправителя не возникает. Делается все довольно просто.
+
+Открываем для редактирования файл ///opt/zimbra/conf/salocal.cf.in///
+Находим секцию # accept email from zimbra support and forumns
+
+Добавляем блокируемый домен (например блокируем всю почту из домена com.ua)
+<code>
+blacklist_from *.com.ua
+</code>
+Сохраняем файл и перезапускаем Zimbra командой
+<code>
+zmcontrol stop && zmcontrol start
+</code>
+Таким же образом можно добавить домен, почту от которого нужно всегда пропускать (например почту от пользователей своего домена). В той же секции необходимо добавить
+<code>
+whitelist_from *@zimbradomain.dom
+</code>
+
+
+=== Whitelist | Blacklist a domain or email address on Zimbra Amavis ===
+
+
+Create two files that will store the domains and email addresses you wish to whitelist or blacklist.
+<code>
+$ sudo touch /opt/zimbra/conf/{whitelist,blacklist}
+</code>
+All whitelists will be in the file /opt/zimbra/conf/whitelist, the blacklisted will be in the file 
+Example:
+<code>
+/opt/zimbra/conf/blacklist
+$ cat /opt/zimbra/conf/whitelist
+jmutai@example.com example.org
+$ cat /opt/zimbra/conf/blacklist
+spammer@example.com
+fakedomain.com
+</code>
+Now you need to modify your /opt/zimbra/conf/amavisd.conf.in configuration file have checks on the two files we just added above.
+<code>
+read_hash(%whitelist_sender, '/opt/zimbra/conf/whitelist');
+read_hash(%blacklist_sender, '/opt/zimbra/conf/blacklist');
+</code>
+After saving the changes, restart the amavis service.
+<code>
+sudo su - zimbra -c "zmamavisdctl restart"
+</code>
+You can now retry sending email from a blocked domain/address or whitelisted ones and see if the email is delivered.
