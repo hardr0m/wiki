@@ -90,11 +90,18 @@ dmesg 2&gt;&amp;1 | grep «Killed» | awk &#039;{print 9 « » $8}&#039;
 <!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;IP VS IFCONFIG&quot;,&quot;hid&quot;:&quot;ip_vs_ifconfig&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:5,&quot;range&quot;:&quot;1644-1711&quot;} -->
 <h3 class="sectionedit6" id="генерировать_и_переносить_ключи">Генерировать и переносить ключи.</h3>
 <div class="level3">
+<pre class="code">ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port</pre>
 
 <p>
-ssh-keygen<br />
-ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port
+Копирование открытого ключа с помощью SSH
 </p>
+<pre class="code">cat ~/.ssh/id_rsa.pub | ssh username@remote_host &quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&quot;</pre>
+
+<p>
+При необходимости эта команда создаст каталог, а если каталог уже существует, команда ничего не сделает:
+</p>
+<pre class="code">mkdir -p ~/.ssh</pre>
 
 </div>
 <!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0413\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c \u043a\u043b\u044e\u0447\u0438.&quot;,&quot;hid&quot;:&quot;\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c_\u0438_\u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c_\u043a\u043b\u044e\u0447\u0438&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:6,&quot;range&quot;:&quot;1712-&quot;} -->

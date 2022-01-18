@@ -42,7 +42,21 @@
 
 pg_dump -Fc -v - -host=localhost - -username=zabbix - -dbname=zabbix_db -f zabbix_db.dump  
 
-pg_dump -Fc -v - -host=localhost - -username=masterlogin - -dbname=testdb -f testdb.dump</pre>
+pg_dump -Fc -v - -host=localhost - -username=masterlogin - -dbname=testdb -f testdb.dump
+
+Дамп конкретной БД
+pg_dump -h localhost -O -F t -c -U postgres &lt;имя_бд&gt; | gzip -c &gt; &lt;имя_файла&gt;.gz
+
+Где:
+-h [host]: имя хоста, значение по умолчанию localhost или значение из переменной окружения PGHOST.
+-О: пропускает команды для установки владельца таблиц, видов и т. д.
+-F {c|t|p}: формат вывода данных custom, tar, plane text.
+-c: добавляет команды для удаления (drop) объектов (таблиц, видов и т. д.).
+-U [username]: — пользователь, чьими правами доступа нужно воспользоваться при запросе данных. По умолчанию берется текущий пользователь.
+
+Дамп всех БД
+pg_dumpall | gzip -c &gt; &lt;имя_файла&gt;.gz
+</pre>
 
 <p>
 Импорт:
@@ -54,5 +68,15 @@ pg_restore -v - -no-owner - -host=mydemoserver.postgres.database.azure.com - -po
 <p>
 <em>При включении параметра - -no-owner все объекты, созданные во время восстановления, будут присвоены пользователю, отмеченному - -username.</em><em class="u">Подчёркнутый</em>
 </p>
+
+<p>
+Отобразить папку с базами данных
+</p>
+<pre class="code">ps auxw | grep postgres | grep -- -D</pre>
+
+<p>
+Список баз
+</p>
+<pre class="code">psql -l</pre>
 
 </div>

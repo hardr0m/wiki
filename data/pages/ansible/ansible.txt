@@ -1,0 +1,4 @@
+==== Ansible command ====
+<code>
+ansible-playbook install_apps.yml -i inventories/dev/hosts -k -K -u username
+</code>

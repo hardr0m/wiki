@@ -14,3 +14,4 @@ blacklisted
 whitelisted
 hostnamectl
 newhostname
+inventories

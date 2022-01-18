@@ -76,3 +76,6 @@ changes
 service
 sending
 blocked
+dumpall
+ansible
+scripts

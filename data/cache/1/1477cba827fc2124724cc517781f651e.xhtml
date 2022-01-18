@@ -1,0 +1,17 @@
+
+<h1 class="sectionedit1" id="useful_scripts">Useful scripts</h1>
+<div class="level1">
+
+</div>
+
+<h4 id="добавить_ip_адреса_на_интерфейс">Добавить ip адреса на интерфейс.</h4>
+<div class="level4">
+<pre class="code">#!/bin/bash
+
+DEV=eno1
+
+for i  in {129..190}; do
+        ip addr add 216.75.11.$i/26 dev $DEV;
+done;</pre>
+
+</div>

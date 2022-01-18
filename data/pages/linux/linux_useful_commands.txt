@@ -57,6 +57,16 @@ https://inai.de/2008/02/19
 </code>
 
 ==== Генерировать и переносить ключи. ====
-
+<code>
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port
+</code>
+
+Копирование открытого ключа с помощью SSH
+<code>
+cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+</code>
+При необходимости эта команда создаст каталог, а если каталог уже существует, команда ничего не сделает:
+<code>
+mkdir -p ~/.ssh
+</code>

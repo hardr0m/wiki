@@ -19,3 +19,5 @@ mail_servers:postfix
 mail_servers:zimbra
 zabbix:zabbix
 jenkins:jenkins
+ansible:ansible
+ansible:scripts
