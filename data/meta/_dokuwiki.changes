@@ -1,23 +1,20 @@
-1638349027	94.231.116.43	E	mail_servers:zimbra	sa			954
-1638620038	23.238.77.2	E	mail_servers:zimbra	sa	[Блокировка почтовых доменов в Zimbra] 		40
-1638620095	23.238.77.2	E	mail_servers:zimbra	sa	[Блокировка почтовых доменов в Zimbra] 		-15
-1638620180	23.238.77.2	E	mail_servers:zimbra	sa	[Блокировка почтовых доменов в Zimbra] 		15
-1638620225	23.238.77.2	E	mail_servers:zimbra	sa	[Блокировка почтовых доменов в Zimbra] 		28
-1638620453	127.0.0.1	E	ansible:ansible		внешнее изменение		0
-1638791904	94.231.116.43	E	linux:linux_useful_commands	sa			18
-1639416056	94.231.116.43	E	linux:linux_useful_commands	sa			93
-1639674629	94.231.116.43	E	linux:linux_useful_commands	sa			22
-1639674921	94.231.116.43	E	linux:linux_useful_commands	sa			79
-1640250138	94.231.116.43	E	linux:linux_useful_commands	sa			67
-1640250176	94.231.116.43	E	linux:linux_useful_commands	sa	[Копирование файлов с удаленного компа (и наоборот)] 		2
-1640595742	94.231.116.43	E	linux:linux_useful_commands	sa			145
-1640693885	94.231.116.43	E	linux:linux_useful_commands	sa			18
-1640695935	94.231.116.43	E	mysql:mysql	sa			293
-1640716382	94.231.116.43	E	nginx:nginx	sa			154
-1642080695	94.231.116.43	E	postgresql:postgresql	sa			114
-1642080744	94.231.116.43	E	postgresql:postgresql	sa			43
-1642080819	94.231.116.43	E	postgresql:postgresql	sa			934
-1642345735	95.83.132.234	E	ansible:ansible	sa			96
 1642487069	23.238.77.2	E	linux:linux_useful_commands	sa	[Генерировать и переносить ключи.] 		427
 1642487168	23.238.77.2	E	ansible:ansible	sa			21
 1642507808	94.231.116.43	C	ansible:scripts	sa	создано		211
+1642571833	94.231.116.43	E	ansible:scripts	sa			501
+1642571865	94.231.116.43	E	ansible:scripts	sa			0
+1643128566	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		81
+1644237238	94.231.116.43	E	linux:linux_useful_commands	sa			1112
+1644237337	94.231.116.43	E	linux:linux_useful_commands	sa			195
+1644238099	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		229
+1644238189	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		271
+1644477214	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			128
+1644477257	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Посмотреть версию.] 		91
+1644691518	95.83.134.234	E	ansible:ansible	sa			193
+1645265092	95.83.134.234	E	ansible:ansible	sa			84
+1645265140	95.83.134.234	E	ansible:ansible	sa			100
+1645273179	94.231.116.43	E	ansible:ansible	sa			54
+1645278160	95.83.134.234	E	linux:linux_useful_commands	sa			544
+1645547397	94.231.116.43	E	docker:docker	sa			164
+1646457779	94.231.116.43	E	linux:linux_useful_commands	sa			419
+1646458031	94.231.116.43	E	linux:linux_useful_commands	sa			85

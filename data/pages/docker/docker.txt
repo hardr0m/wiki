@@ -46,3 +46,8 @@ docker exec -ti имя  контейнера bash
 <code>
 docker system prune 
 </code>
+
+Нагрузочное тестирование
+<code>
+docker run -it --rm ddosify/ddosify ddosify -t http://10.10.5.150 -l incremental -d 45 -n 1000000 
+</code>

@@ -17,3 +17,5 @@
 1638249846	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Возможные ошибки и их исправления] 		102
 1638249898	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Установка GitLab] 		59
 1638249930	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			9
+1644477214	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			128
+1644477257	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Посмотреть версию.] 		91

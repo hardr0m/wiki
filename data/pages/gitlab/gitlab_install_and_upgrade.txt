@@ -3,7 +3,14 @@
 Нужно установить программное обеспечение которое необходимо для установки и работы GitLab:
 sudo apt install ca-certificates curl openssh-server postfix
 
-
+==== Посмотреть версию.====
+<code>
+sudo gitlab-rake gitlab:env:info
+или
+https://your.domain.name/help
+или
+curl --header "PRIVATE-TOKEN: personal-access-token" your-gitlab-url/api/v4/version
+</code>
 
 ==== Установка GitLab ====
 

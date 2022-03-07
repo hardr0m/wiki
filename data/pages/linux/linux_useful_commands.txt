@@ -1,5 +1,21 @@
 ===== Полезные команды linux. =====
 
+==== Создать пользователя одной командой ====
+
+<code> 
+sudo adduser gu_admin -G wheel -m -p $(openssl passwd -1 test1234) -s /bin/bash
+</code>
+==== Ssh авторизация по логину паролю: ====
+
+<code>  
+sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config
+</code>
+
+==== Конвертируем centos 8 to rocky: ====
+ 
+wget https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh  
+sudo bash migrate2rocky.sh -r
+
 === Очистить файл для просмотра от комментариев. ===
 
 <code>
@@ -8,6 +24,36 @@ grep -vE '(^[[:space:]]*([#;!].*)?$)' file
 cat file | grep -v '^#'
 </code>
 
+Просмотр логов в живую
+<code>
+tail -f /var/log/syslog 
+</code>
+
+Уникальные IP-адреса из log-файла:
+<code>
+less /var/log/nginx/access.log | cut -d' ' -f1 | sort | uniq
+
+less — утилита для вывода содержимого файла /var/log/nginx/access.log.
+cut -d' ' -f1 — разбиваем строку на подстроки разделителем «пробел». Разделитель указывается флагом -d. Флагом -f указываем порядковый номер поля, которое будет отображаться в выводе. В данном случае «1» — первое поле, это и есть IP-адрес.
+sort — сортировка строк по порядку. Команда сгруппирует одинаковые строки «рядом«. Команда sort необходима для корректной работы следующей команды — uniq.
+uniq— выведет только уникальные строки, то есть в результате будут только уникальные IP-адреса.
+
+Для вывода количества, нужно добавить флаг -с (от слова count) к команде uniq:
+less /var/log/nginx/access.log | cut -d' ' -f1 | sort | uniq -c
+
+
+Посмотрим, какие IP-адреса чаще всего обращаются к Nginx и выведем список по убыванию:
+
+# awk '{print $1}' /var/log/nginx/access.log | sort | uniq -c | sort -nr
+
+
+Допустим, если атакующий будет долбить в уязвимое место, то это будет адрес этой страницы.
+
+# tail -1000 /var/log/nginx/access.log | egrep "GET / HTTP/1.1" | awk '{print $1}' | sort -n | uniq -c
+
+
+
+</code>
 
 ===== SCP =====
 
@@ -70,3 +116,26 @@ cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && cat >> ~/.s
 <code>
 mkdir -p ~/.ssh
 </code>
+
+==== Ищем и удаляем Zombie процессы. ====
+<code>
+top | grep zombie
+
+ps aux | grep -w Z
+
+ps -alx | awk '$10 ~ /STAT|Z/'
+
+ps aux | grep defunct
+</code>
+ 
+Чтобы его завершить, нужно найти "родителя" этого процесса. Для этого используйте команду:
+
+<code>
+ps -xal | grep defunct
+
+ps -efl | grep defunct
+
+kill -KILL 3990
+</code>
+
+for i in 33 10 37; do scp /etc/default/sheepdog 192.168.100.${i}:/etc/default; done

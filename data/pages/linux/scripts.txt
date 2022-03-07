@@ -1,0 +1,32 @@
+====== Useful scripts ======
+
+=== Добавить ip адреса на интерфейс. ===
+
+<code>
+#!/bin/bash
+
+DEV=eno1
+
+for i  in {129..190}; do
+        ip addr add 216.75.11.$i/26 dev $DEV;
+done;
+</code>
+
+=== Перекинуть файлы с локального компьютера на удаленный с помощью lftp. ===
+<code>
+#!/bin/bash
+
+#Number of days
+day=1
+
+#Path to folder with files
+where_find="/path/backups/"
+#Files for the last day
+search=$(find $where_find -name "*.zip" -type f -mtime -$day)
+
+#FTP
+USER=iage_ftp
+HOST=ip_address:port  #(если порт не стандартный то указываем)
+PASS=password
+lftp -e "put $search" ftp://$USER:$PASS@$HOST
+</code>

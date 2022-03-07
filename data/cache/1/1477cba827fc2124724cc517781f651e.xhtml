@@ -15,3 +15,23 @@ for i  in {129..190}; do
 done;</pre>
 
 </div>
+
+<h4 id="перекинуть_файлы_с_локального_компьютера_на_удаленный_с_помощью_lftp">Перекинуть файлы с локального компьютера на удаленный с помощью lftp.</h4>
+<div class="level4">
+<pre class="code">#!/bin/bash
+
+#Number of days
+day=1
+
+#Path to folder with files
+where_find=&quot;/path/backups/&quot;
+#Files for the last day
+search=$(find $where_find -name &quot;*.zip&quot; -type f -mtime -$day)
+
+#FTP
+USER=iage_ftp
+HOST=ip_address:port  #(если порт не стандартный то указываем)
+PASS=password
+lftp -e &quot;put $search&quot; ftp://$USER:$PASS@$HOST</pre>
+
+</div>
