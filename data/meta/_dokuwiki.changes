@@ -18,3 +18,5 @@
 1645547397	94.231.116.43	E	docker:docker	sa			164
 1646457779	94.231.116.43	E	linux:linux_useful_commands	sa			419
 1646458031	94.231.116.43	E	linux:linux_useful_commands	sa			85
+1648835340	127.0.0.1	E	git:initial_settings_git		внешнее изменение		0
+1649143518	95.83.134.234	E	git:initial_settings_git	sa			1627
