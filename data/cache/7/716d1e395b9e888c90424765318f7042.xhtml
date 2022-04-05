@@ -1,0 +1,19 @@
+
+<h3 class="sectionedit1" id="включить_сайт_символьная_ссылка">Включить сайт (символьная ссылка)</h3>
+<div class="level3">
+<pre class="code">ln -s /etc/nginx/sites-available/sitename /etc/nginx/sites-enabled/</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0412\u043a\u043b\u044e\u0447\u0438\u0442\u044c \u0441\u0430\u0439\u0442 (\u0441\u0438\u043c\u0432\u043e\u043b\u044c\u043d\u0430\u044f \u0441\u0441\u044b\u043b\u043a\u0430)&quot;,&quot;hid&quot;:&quot;\u0432\u043a\u043b\u044e\u0447\u0438\u0442\u044c_\u0441\u0430\u0439\u0442_\u0441\u0438\u043c\u0432\u043e\u043b\u044c\u043d\u0430\u044f_\u0441\u0441\u044b\u043b\u043a\u0430&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;3-158&quot;} -->
+<h3 class="sectionedit2" id="настройка_сертификатов_letsencrypt">Настройка сертификатов LetsEnCrypt</h3>
+<div class="level3">
+
+<p>
+sudo apt install letsencrypt<br />
+sudo systemctl status certbot.timer<br />
+sudo certbot certonly –standalone –agree-tos –preferred-challenges http -d domain-name.com<br />
+30 2 * * 1 /usr/bin/certbot renew » /var/log/le-renew.log
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430 \u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0432 LetsEnCrypt&quot;,&quot;hid&quot;:&quot;\u043d\u0430\u0441\u0442\u0440\u043e\u0439\u043a\u0430_\u0441\u0435\u0440\u0442\u0438\u0444\u0438\u043a\u0430\u0442\u043e\u0432_letsencrypt&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:2,&quot;range&quot;:&quot;159-&quot;} -->

@@ -3,3 +3,10 @@
 <code>
 ln -s /etc/nginx/sites-available/sitename /etc/nginx/sites-enabled/
 </code>
+
+==== Настройка сертификатов LetsEnCrypt ====
+
+sudo apt install letsencrypt
+sudo systemctl status certbot.timer
+sudo certbot certonly --standalone --agree-tos --preferred-challenges http -d domain-name.com
+30 2 * * 1 /usr/bin/certbot renew >> /var/log/le-renew.log

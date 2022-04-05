@@ -1,0 +1,22 @@
+
+<h3 class="sectionedit1" id="ansible_command">Ansible command</h3>
+<div class="level3">
+<pre class="code">ansible-playbook install_apps.yml -i inventories/dev/hosts -k -K -u username
+ansible-playbook install_apps.yml -l appservers -i inventories/dev/ common.yml -k -K -u username
+
+l-лимитируем по группам хостов (appservers, db, webservers и т.д)
+
+Шифруем
+
+ansible-vault encrypt inventories/dev/group_vars/all/enc_users.yml
+
+Расшифровываем 
+
+ansible-vault decrypt inventories/dev/group_vars/all/enc_users.yml 
+</pre>
+
+<p>
+ansible -m ping all(или db и т.д.) -k -K -u sa
+</p>
+
+</div>

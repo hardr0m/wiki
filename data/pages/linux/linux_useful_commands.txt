@@ -87,7 +87,8 @@ scp -P 12345 /home/test.txt root@123.123.123.123:/directory
 ==== RSYNC ====
 
 
-=== Изменить имя хоста ===
+==== Изменить имя хоста ====
+
 <code> 
 hostnamectl set-hostname NewHostName
 </code>

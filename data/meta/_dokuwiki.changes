@@ -20,3 +20,7 @@
 1646458031	94.231.116.43	E	linux:linux_useful_commands	sa			85
 1648835340	127.0.0.1	E	git:initial_settings_git		внешнее изменение		0
 1649143518	95.83.134.234	E	git:initial_settings_git	sa			1627
+1648835340	127.0.0.1	E	linux:linux_useful_commands		внешнее изменение		0
+1649150272	95.83.134.234	E	linux:linux_useful_commands	sa	[RSYNC] 		3
+1648835340	127.0.0.1	E	nginx:nginx		внешнее изменение		0
+1649151845	95.83.134.234	E	nginx:nginx	sa			286
