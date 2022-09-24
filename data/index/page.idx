@@ -21,3 +21,4 @@ zabbix:zabbix
 jenkins:jenkins
 ansible:ansible
 ansible:scripts
+linux:scripts

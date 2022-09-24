@@ -1,10 +1,3 @@
-1642487069	23.238.77.2	E	linux:linux_useful_commands	sa	[Генерировать и переносить ключи.] 		427
-1642487168	23.238.77.2	E	ansible:ansible	sa			21
-1642507808	94.231.116.43	C	ansible:scripts	sa	создано		211
-1642571833	94.231.116.43	E	ansible:scripts	sa			501
-1642571865	94.231.116.43	E	ansible:scripts	sa			0
-1643128566	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		81
-1644237238	94.231.116.43	E	linux:linux_useful_commands	sa			1112
 1644237337	94.231.116.43	E	linux:linux_useful_commands	sa			195
 1644238099	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		229
 1644238189	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		271
@@ -19,8 +12,12 @@
 1646457779	94.231.116.43	E	linux:linux_useful_commands	sa			419
 1646458031	94.231.116.43	E	linux:linux_useful_commands	sa			85
 1648835340	127.0.0.1	E	git:initial_settings_git		внешнее изменение		0
-1649143518	95.83.134.234	E	git:initial_settings_git	sa			1627
 1648835340	127.0.0.1	E	linux:linux_useful_commands		внешнее изменение		0
-1649150272	95.83.134.234	E	linux:linux_useful_commands	sa	[RSYNC] 		3
 1648835340	127.0.0.1	E	nginx:nginx		внешнее изменение		0
+1649143518	95.83.134.234	E	git:initial_settings_git	sa			1627
+1649150272	95.83.134.234	E	linux:linux_useful_commands	sa	[RSYNC] 		3
 1649151845	95.83.134.234	E	nginx:nginx	sa			286
+1649233603	95.83.134.234	E	linux:linux_useful_commands	sa	[Конвертируем centos 8 to rocky:] 		14
+1648835340	127.0.0.1	E	docker:docker		внешнее изменение		0
+1664024607	31.44.51.191	E	docker:docker	sa			358
+1664025198	31.44.51.191	E	docker:docker	sa			165

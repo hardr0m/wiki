@@ -46,6 +46,27 @@ docker exec -ti имя  контейнера bash
 <code>
 docker system prune 
 </code>
+Чтобы удалить все остановленные контейнеры и неиспользуемые образы
+<code>
+docker system prune -a
+</code>
+
+Удалить все контейнеры с томами
+<code>
+docker rm -vf $(docker ps -aq)
+</code>
+Удалить все образы
+<code>
+docker rmi -f $(docker images -aq)
+</code>
+
+Для Winodows Powershell и Command Line
+<code>
+docker images -a -q | % { docker image rm $_ -f }
+for /F %i in ('docker images -a -q') do docker rmi -f %i
+</code>
+
+
 
 Нагрузочное тестирование
 <code>

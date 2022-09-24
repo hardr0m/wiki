@@ -1,0 +1,185 @@
+
+<h2 class="sectionedit1" id="полезные_команды_linux">Полезные команды linux.</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041f\u043e\u043b\u0435\u0437\u043d\u044b\u0435 \u043a\u043e\u043c\u0430\u043d\u0434\u044b linux.&quot;,&quot;hid&quot;:&quot;\u043f\u043e\u043b\u0435\u0437\u043d\u044b\u0435_\u043a\u043e\u043c\u0430\u043d\u0434\u044b_linux&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-52&quot;} -->
+<h3 class="sectionedit2" id="создать_пользователя_одной_командой">Создать пользователя одной командой</h3>
+<div class="level3">
+<pre class="code"> 
+sudo adduser gu_admin -G wheel -m -p $(openssl passwd -1 test1234) -s /bin/bash</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0421\u043e\u0437\u0434\u0430\u0442\u044c \u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f \u043e\u0434\u043d\u043e\u0439 \u043a\u043e\u043c\u0430\u043d\u0434\u043e\u0439&quot;,&quot;hid&quot;:&quot;\u0441\u043e\u0437\u0434\u0430\u0442\u044c_\u043f\u043e\u043b\u044c\u0437\u043e\u0432\u0430\u0442\u0435\u043b\u044f_\u043e\u0434\u043d\u043e\u0439_\u043a\u043e\u043c\u0430\u043d\u0434\u043e\u0439&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;53-227&quot;} -->
+<h3 class="sectionedit3" id="ssh_авторизация_по_логину_паролю">Ssh авторизация по логину паролю:</h3>
+<div class="level3">
+<pre class="code">  
+sudo sed -i &#039;s/PasswordAuthentication no/PasswordAuthentication yes/&#039; /etc/ssh/sshd_config</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Ssh \u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f \u043f\u043e \u043b\u043e\u0433\u0438\u043d\u0443 \u043f\u0430\u0440\u043e\u043b\u044e:&quot;,&quot;hid&quot;:&quot;ssh_\u0430\u0432\u0442\u043e\u0440\u0438\u0437\u0430\u0446\u0438\u044f_\u043f\u043e_\u043b\u043e\u0433\u0438\u043d\u0443_\u043f\u0430\u0440\u043e\u043b\u044e&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;228-407&quot;} -->
+<h3 class="sectionedit4" id="конвертируем_centos_8_to_rocky">Конвертируем centos 8 to rocky:</h3>
+<div class="level3">
+<pre class="code"> 
+wget https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh  
+sudo bash migrate2rocky.sh -r</pre>
+
+</div>
+
+<h4 id="очистить_файл_для_просмотра_от_комментариев">Очистить файл для просмотра от комментариев.</h4>
+<div class="level4">
+<pre class="code">grep -vE &#039;(^[[:space:]]*([#;!].*)?$)&#039; file
+
+cat file | grep -v &#039;^#&#039;</pre>
+
+<p>
+Просмотр логов в живую
+</p>
+<pre class="code">tail -f /var/log/syslog </pre>
+
+<p>
+Уникальные IP-адреса из log-файла:
+</p>
+<pre class="code">less /var/log/nginx/access.log | cut -d&#039; &#039; -f1 | sort | uniq
+
+less — утилита для вывода содержимого файла /var/log/nginx/access.log.
+cut -d&#039; &#039; -f1 — разбиваем строку на подстроки разделителем «пробел». Разделитель указывается флагом -d. Флагом -f указываем порядковый номер поля, которое будет отображаться в выводе. В данном случае «1» — первое поле, это и есть IP-адрес.
+sort — сортировка строк по порядку. Команда сгруппирует одинаковые строки «рядом«. Команда sort необходима для корректной работы следующей команды — uniq.
+uniq— выведет только уникальные строки, то есть в результате будут только уникальные IP-адреса.
+
+Для вывода количества, нужно добавить флаг -с (от слова count) к команде uniq:
+less /var/log/nginx/access.log | cut -d&#039; &#039; -f1 | sort | uniq -c
+
+
+Посмотрим, какие IP-адреса чаще всего обращаются к Nginx и выведем список по убыванию:
+
+# awk &#039;{print $1}&#039; /var/log/nginx/access.log | sort | uniq -c | sort -nr
+
+
+Допустим, если атакующий будет долбить в уязвимое место, то это будет адрес этой страницы.
+
+# tail -1000 /var/log/nginx/access.log | egrep &quot;GET / HTTP/1.1&quot; | awk &#039;{print $1}&#039; | sort -n | uniq -c
+
+
+</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c centos 8 to rocky:&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c_centos_8_to_rocky&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:4,&quot;range&quot;:&quot;408-2675&quot;} -->
+<h2 class="sectionedit5" id="scp">SCP</h2>
+<div class="level2">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;SCP&quot;,&quot;hid&quot;:&quot;scp&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:5,&quot;range&quot;:&quot;2676-2692&quot;} -->
+<h3 class="sectionedit6" id="копирование_файлов_с_удаленного_компа_и_наоборот">Копирование файлов с удаленного компа (и наоборот)</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="с_локального_компьютера_на_удаленный">С локального компьютера на удаленный</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp /home/test.txt root@123.123.123.123:/directory</pre>
+
+<p>
+Файл test.txt будет скопирован на хост 123.123.123.123 в директорию «/directory».
+</p>
+
+</div>
+
+<h4 id="с_удаленного_компьютера_на_локальный">С удаленного компьютера на локальный</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp root@123.123.123.123:/home/test.txt /directory</pre>
+
+<p>
+Файл test.txt будет загружен с сервера 123.123.123.123 на локальный компьютер в папку «/directory».
+</p>
+
+</div>
+
+<h4 id="как_подключиться_к_серверу_по_нестандартному_порту">Как подключиться к серверу по нестандартному порту</h4>
+<div class="level4">
+
+<p>
+Пример команды:
+</p>
+<pre class="code">scp -P 12345 /home/test.txt root@123.123.123.123:/directory</pre>
+
+<p>
+Эта команда подключается по порту 12345 к серверу 123.123.123.123 и копирует на него файл «test.txt» с локального компьютера в директорию «/directory».
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432 \u0441 \u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u0430 (\u0438 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442)&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432_\u0441_\u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e_\u043a\u043e\u043c\u043f\u0430_\u0438_\u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:6,&quot;range&quot;:&quot;2693-3871&quot;} -->
+<h3 class="sectionedit7" id="rsync">RSYNC</h3>
+<div class="level3">
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RSYNC&quot;,&quot;hid&quot;:&quot;rsync&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:7,&quot;range&quot;:&quot;3872-3889&quot;} -->
+<h3 class="sectionedit8" id="изменить_имя_хоста">Изменить имя хоста</h3>
+<div class="level3">
+<pre class="code"> 
+hostnamectl set-hostname NewHostName</pre>
+
+<p>
+sysctl -a | grep free<br />
+dmesg 2&gt;&amp;1 | grep «Killed»<br />
+dmesg 2&gt;&amp;1 | grep «Killed» | awk &#039;{print 9 « » $8}&#039;
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043c\u044f \u0445\u043e\u0441\u0442\u0430&quot;,&quot;hid&quot;:&quot;\u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c_\u0438\u043c\u044f_\u0445\u043e\u0441\u0442\u0430&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:8,&quot;range&quot;:&quot;3890-4092&quot;} -->
+<h3 class="sectionedit9" id="ip_vs_ifconfig">IP VS IFCONFIG</h3>
+<div class="level3">
+<pre class="code">https://inai.de/2008/02/19</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;IP VS IFCONFIG&quot;,&quot;hid&quot;:&quot;ip_vs_ifconfig&quot;,&quot;codeblockOffset&quot;:10,&quot;secid&quot;:9,&quot;range&quot;:&quot;4093-4160&quot;} -->
+<h3 class="sectionedit10" id="генерировать_и_переносить_ключи">Генерировать и переносить ключи.</h3>
+<div class="level3">
+<pre class="code">ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port</pre>
+
+<p>
+Копирование открытого ключа с помощью SSH
+</p>
+<pre class="code">cat ~/.ssh/id_rsa.pub | ssh username@remote_host &quot;mkdir -p ~/.ssh &amp;&amp; cat &gt;&gt; ~/.ssh/authorized_keys&quot;</pre>
+
+<p>
+При необходимости эта команда создаст каталог, а если каталог уже существует, команда ничего не сделает:
+</p>
+<pre class="code">mkdir -p ~/.ssh</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0413\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c \u043a\u043b\u044e\u0447\u0438.&quot;,&quot;hid&quot;:&quot;\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c_\u0438_\u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c_\u043a\u043b\u044e\u0447\u0438&quot;,&quot;codeblockOffset&quot;:11,&quot;secid&quot;:10,&quot;range&quot;:&quot;4161-4732&quot;} -->
+<h3 class="sectionedit11" id="ищем_и_удаляем_zombie_процессы">Ищем и удаляем Zombie процессы.</h3>
+<div class="level3">
+<pre class="code">top | grep zombie
+
+ps aux | grep -w Z
+
+ps -alx | awk &#039;$10 ~ /STAT|Z/&#039;
+
+ps aux | grep defunct</pre>
+
+<p>
+Чтобы его завершить, нужно найти «родителя» этого процесса. Для этого используйте команду:
+</p>
+<pre class="code">ps -xal | grep defunct
+
+ps -efl | grep defunct
+
+kill -KILL 3990</pre>
+
+<p>
+for i in 33 10 37; do scp /etc/default/sheepdog 192.168.100.${i}:/etc/default; done
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0449\u0435\u043c \u0438 \u0443\u0434\u0430\u043b\u044f\u0435\u043c Zombie \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b.&quot;,&quot;hid&quot;:&quot;\u0438\u0449\u0435\u043c_\u0438_\u0443\u0434\u0430\u043b\u044f\u0435\u043c_zombie_\u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b&quot;,&quot;codeblockOffset&quot;:14,&quot;secid&quot;:11,&quot;range&quot;:&quot;4733-&quot;} -->

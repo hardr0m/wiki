@@ -12,9 +12,10 @@ sudo sed -i 's/PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/s
 </code>
 
 ==== Конвертируем centos 8 to rocky: ====
- 
+<code> 
 wget https://raw.githubusercontent.com/rocky-linux/rocky-tools/main/migrate2rocky/migrate2rocky.sh  
 sudo bash migrate2rocky.sh -r
+</code>
 
 === Очистить файл для просмотра от комментариев. ===
 
