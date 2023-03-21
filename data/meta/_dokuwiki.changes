@@ -1,23 +1,20 @@
-1644237337	94.231.116.43	E	linux:linux_useful_commands	sa			195
-1644238099	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		229
-1644238189	94.231.116.43	E	linux:linux_useful_commands	sa	[Полезные команды linux.] 		271
-1644477214	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa			128
-1644477257	94.231.116.43	E	gitlab:gitlab_install_and_upgrade	sa	[Посмотреть версию.] 		91
-1644691518	95.83.134.234	E	ansible:ansible	sa			193
-1645265092	95.83.134.234	E	ansible:ansible	sa			84
-1645265140	95.83.134.234	E	ansible:ansible	sa			100
-1645273179	94.231.116.43	E	ansible:ansible	sa			54
-1645278160	95.83.134.234	E	linux:linux_useful_commands	sa			544
-1645547397	94.231.116.43	E	docker:docker	sa			164
-1646457779	94.231.116.43	E	linux:linux_useful_commands	sa			419
-1646458031	94.231.116.43	E	linux:linux_useful_commands	sa			85
-1648835340	127.0.0.1	E	git:initial_settings_git		внешнее изменение		0
-1648835340	127.0.0.1	E	linux:linux_useful_commands		внешнее изменение		0
-1648835340	127.0.0.1	E	nginx:nginx		внешнее изменение		0
-1649143518	95.83.134.234	E	git:initial_settings_git	sa			1627
-1649150272	95.83.134.234	E	linux:linux_useful_commands	sa	[RSYNC] 		3
-1649151845	95.83.134.234	E	nginx:nginx	sa			286
-1649233603	95.83.134.234	E	linux:linux_useful_commands	sa	[Конвертируем centos 8 to rocky:] 		14
-1648835340	127.0.0.1	E	docker:docker		внешнее изменение		0
-1664024607	31.44.51.191	E	docker:docker	sa			358
 1664025198	31.44.51.191	E	docker:docker	sa			165
+1664640884	31.44.51.191	E	docker:docker	sa			395
+1666121133	31.44.51.191	E	linux:linux_useful_commands	sa			329
+1666121200	31.44.51.191	E	linux:linux_useful_commands	sa	[echo примеры] 		4
+1666121234	31.44.51.191	E	linux:linux_useful_commands	sa	[echo примеры] 		-6
+1666121254	31.44.51.191	E	linux:linux_useful_commands	sa	[echo примеры] 		-108
+1666121310	31.44.51.191	E	linux:linux_useful_commands	sa			4
+1666205434	31.44.51.191	E	linux:linux_useful_commands	sa			1319
+1666205615	31.44.51.191	E	linux:linux_useful_commands	sa			2
+1666814896	31.44.51.191	E	linux:linux_useful_commands	sa			181
+1666817084	31.44.51.191	E	linux:linux_useful_commands	sa			225
+1666817325	31.44.51.191	E	linux:linux_useful_commands	sa			15
+1666817468	31.44.51.191	E	linux:linux_useful_commands	sa			1232
+1667674974	176.212.179.234	C	linux:terminal_tty	sa	создано		4249
+1667675208	176.212.179.234	E	linux:scripts	sa			395
+1667675383	176.212.179.234	E	linux:scripts	sa			4
+1667760358	176.212.179.234	E	linux:linux_useful_commands	sa	[Ищем и удаляем Zombie процессы.] 		99
+1671307884	176.212.183.206	E	linux:linux_useful_commands	sa			650
+1671309172	176.212.183.206	E	linux:linux_useful_commands	sa			3230
+1671309578	176.212.183.206	E	linux:linux_useful_commands	sa			1841

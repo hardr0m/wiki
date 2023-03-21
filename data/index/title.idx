@@ -1,11 +1,11 @@
 Welcome to your new DokuWiki
 DEVOPS
-
+PlayGround
 
 Начальные настройки Git
 Включить сайт (символьная ссылка)
 
-
+Установка DOCKER
 Preparing the ElasticSearch server
 
 
@@ -22,3 +22,4 @@ Postfix remove received header
 Ansible command
 
 Useful scripts
+Горячие клавиши в TTY Linux

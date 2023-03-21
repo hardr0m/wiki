@@ -1,4 +1,15 @@
 
+<h3 class="sectionedit1" id="установка_docker">Установка DOCKER</h3>
+<div class="level3">
+
+<p>
+sudo apt-get update<br />
+sudo apt install apt-transport-https ca-certificates curl software-properties-common<br />
+curl -fsSL <a href="https://download.docker.com/linux/ubuntu/gpg" class="urlextern" title="https://download.docker.com/linux/ubuntu/gpg" rel="ugc nofollow">https://download.docker.com/linux/ubuntu/gpg</a> | sudo apt-key add -<br />
+sudo add-apt-repository «deb [arch=amd64] <a href="https://download.docker.com/linux/ubuntu" class="urlextern" title="https://download.docker.com/linux/ubuntu" rel="ugc nofollow">https://download.docker.com/linux/ubuntu</a> focal stable»<br />
+sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+</p>
+
 <p>
 Просмотр запущенных контейнеров:
 </p>
@@ -67,3 +78,5 @@ for /F %i in (&#039;docker images -a -q&#039;) do docker rmi -f %i</pre>
 Нагрузочное тестирование
 </p>
 <pre class="code">docker run -it --rm ddosify/ddosify ddosify -t http://10.10.5.150 -l incremental -d 45 -n 1000000 </pre>
+
+</div>

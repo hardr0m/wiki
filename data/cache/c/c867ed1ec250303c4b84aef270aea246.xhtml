@@ -1,0 +1,145 @@
+
+<h2 class="sectionedit1" id="install_gitlab_and_upgrade">Install Gitlab and upgrade.</h2>
+<div class="level2">
+
+<p>
+Нужно установить программное обеспечение которое необходимо для установки и работы GitLab:<br />
+sudo apt install ca-certificates curl openssh-server postfix
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Install Gitlab and upgrade.&quot;,&quot;hid&quot;:&quot;install_gitlab_and_upgrade&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-267&quot;} -->
+<h3 class="sectionedit2" id="посмотреть_версию">Посмотреть версию.</h3>
+<div class="level3">
+<pre class="code">sudo gitlab-rake gitlab:env:info
+или
+https://your.domain.name/help
+или
+curl --header &quot;PRIVATE-TOKEN: personal-access-token&quot; your-gitlab-url/api/v4/version</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c \u0432\u0435\u0440\u0441\u0438\u044e.&quot;,&quot;hid&quot;:&quot;\u043f\u043e\u0441\u043c\u043e\u0442\u0440\u0435\u0442\u044c_\u0432\u0435\u0440\u0441\u0438\u044e&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:2,&quot;range&quot;:&quot;268-488&quot;} -->
+<h3 class="sectionedit3" id="установка_gitlab">Установка GitLab</h3>
+<div class="level3">
+
+<p>
+Для установки GitLab будем использовать готовый скрипт, который предоставляет  GitLab CE:<br />
+curl -LO <a href="https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh" class="urlextern" title="https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh" rel="ugc nofollow">https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh</a>
+</p>
+
+<p>
+Запускаем скрипт на выполнение для настройки сервера, чтобы можно было управлять пакетами с помощью apt:<br />
+sudo bash script.deb.sh
+</p>
+
+<p>
+Устанавливаем нужную нам версию:<br />
+sudo apt-get install gitlab-ce=12.9.2-ce.0<br />
+Обновляем<br />
+sudo apt-get install gitlab-ce=12.10.0-ce.0<br />
+И далее по списку <br />
+<a href="https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md" class="urlextern" title="https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md" rel="ugc nofollow">https://gitlab.com/gitlab-org/gitlab-foss/blob/master/CHANGELOG.md</a><br />
+12.9.2—&gt; 12.10.14—&gt;13.0.0–&gt;13.1.0 —&gt;13.9.0—&gt;14.0.0–&gt;14.0.5—&gt;14.1.0—&gt;14.2.0—&gt;14.3.0–&gt;14.4.0–&gt;14.4.2
+</p>
+
+<p>
+Критичные обновления 13.9.0 и 14.0.5
+</p>
+
+<p>
+При обновлении есть нюансы, связанные с дополнительными действиями.
+</p>
+
+<p>
+После каждого обновления <br />
+sudo gitlab-ctl restart
+</p>
+
+<p>
+Возможно потребуется:<br />
+ sudo gitlab-ctl reconfigure<br />
+ sudo gitlab-ctl restart postgresql
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0423\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430 GitLab&quot;,&quot;hid&quot;:&quot;\u0443\u0441\u0442\u0430\u043d\u043e\u0432\u043a\u0430_gitlab&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:3,&quot;range&quot;:&quot;489-1734&quot;} -->
+<h3 class="sectionedit4" id="backup_restore">Backup &amp; restore</h3>
+<div class="level3">
+
+<p>
+gitlab-ctl start<br />
+Обязательно перед восстановлением остановить:
+</p>
+
+<p>
+gitlab-ctl stop unicorn<br />
+gitlab-ctl stop sidekiq
+</p>
+
+<p>
+gitlab-rake gitlab:backup:restore BACKUP=1567330524_2019_09_01_11.10.8   #Указываем префикс архива с номером версии<br />
+gitlab-ctl restart
+</p>
+
+<p>
+Проверка после восстановления<br />
+gitlab-rake gitlab:check SANITIZE=true
+</p>
+
+<p>
+Проверка прав на папку (например, для бэкапов)<br />
+sudo -u git -i bash<br />
+cd /home/admin/backups/gitlab/
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Backup &amp; restore&quot;,&quot;hid&quot;:&quot;backup_restore&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:4,&quot;range&quot;:&quot;1735-2321&quot;} -->
+<h3 class="sectionedit5" id="возможные_ошибки_и_их_исправления">Возможные ошибки и их исправления</h3>
+<div class="level3">
+
+</div>
+
+<h4 id="ошибка">Ошибка</h4>
+<div class="level4">
+
+<p>
+Running handlers:<br />
+There was an error running gitlab-ctl reconfigure:
+</p>
+
+<p>
+undefined method `gitlab&#039; for nil:NilClass
+</p>
+
+</div>
+
+<h4 id="исправить">Исправить</h4>
+<div class="level4">
+<pre class="code">cd /etc/gitlab
+mv gitlab.rb gitlab.rb.bak
+touch gitlab.rb
+gitlab-ctl reconfigure</pre>
+
+<p>
+Причина в неправильном конфигурировании  gitlab.rb
+</p>
+
+<p>
+Не стартует unicorn<br />
+timeout: run: unicorn: (pid 25579) 2411s<br />
+ps -ef | grep unicorn
+</p>
+
+<p>
+Kill -9 &lt;pid&gt;
+</p>
+
+<p>
+С версии 14.0.0 на 14.0.5 в фоновом режиме начнется миграция базы данных, посмотреть можно по ссылке<br />
+<a href="http://gitlab.srvmanage.net/admin/background_migrations" class="urlextern" title="http://gitlab.srvmanage.net/admin/background_migrations" rel="ugc nofollow">http://gitlab.srvmanage.net/admin/background_migrations</a><br />
+Никаких обновлений делать не надо до полной миграции. <br />
+c 14 версии unicorn заменила puma (unicorn не поддерживается). 
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0412\u043e\u0437\u043c\u043e\u0436\u043d\u044b\u0435 \u043e\u0448\u0438\u0431\u043a\u0438 \u0438 \u0438\u0445 \u0438\u0441\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f&quot;,&quot;hid&quot;:&quot;\u0432\u043e\u0437\u043c\u043e\u0436\u043d\u044b\u0435_\u043e\u0448\u0438\u0431\u043a\u0438_\u0438_\u0438\u0445_\u0438\u0441\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f&quot;,&quot;codeblockOffset&quot;:1,&quot;secid&quot;:5,&quot;range&quot;:&quot;2322-&quot;} -->

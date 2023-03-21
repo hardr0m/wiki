@@ -16,3 +16,6 @@ hostnamectl
 newhostname
 inventories
 incremental
+translocate
+information
+unreachable

@@ -35,3 +35,16 @@ PASS=password
 lftp -e &quot;put $search&quot; ftp://$USER:$PASS@$HOST</pre>
 
 </div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;Useful scripts&quot;,&quot;hid&quot;:&quot;useful_scripts&quot;,&quot;codeblockOffset&quot;:0,&quot;secid&quot;:1,&quot;range&quot;:&quot;1-714&quot;} -->
+<h3 class="sectionedit2" id="скрипт_информации_о_системе">Скрипт информации о системе</h3>
+<div class="level3">
+<pre class="code">#!/usr/bin/env bash
+echo &quot;---------------------------------------------------------------&quot;
+echo &quot; System information &quot;
+echo &quot;---------------------------------------------------------------&quot;
+echo &quot;Operating system : $(uname)&quot;
+lsb_release -a 2&gt;/dev/null || echo &quot;lsb_release command not found&quot;
+echo &quot;Kernel : $(uname -r)&quot;</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0421\u043a\u0440\u0438\u043f\u0442 \u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438 \u043e \u0441\u0438\u0441\u0442\u0435\u043c\u0435&quot;,&quot;hid&quot;:&quot;\u0441\u043a\u0440\u0438\u043f\u0442_\u0438\u043d\u0444\u043e\u0440\u043c\u0430\u0446\u0438\u0438_\u043e_\u0441\u0438\u0441\u0442\u0435\u043c\u0435&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:2,&quot;range&quot;:&quot;715-&quot;} -->

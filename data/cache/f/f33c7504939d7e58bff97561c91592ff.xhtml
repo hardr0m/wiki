@@ -26,11 +26,36 @@ sudo bash migrate2rocky.sh -r</pre>
 
 </div>
 
-<h4 id="очистить_файл_для_просмотра_от_комментариев">Очистить файл для просмотра от комментариев.</h4>
+<h4 id="grep">GREP</h4>
 <div class="level4">
+
+<p>
+Очистить файл от комментариев
+</p>
 <pre class="code">grep -vE &#039;(^[[:space:]]*([#;!].*)?$)&#039; file
 
 cat file | grep -v &#039;^#&#039;</pre>
+
+<p>
+Вывести все файлы начинающиеся с заглавной буквы\с буквы или цифры
+</p>
+<pre class="code">grep -h &#039;^[A-Z]&#039; dirlist*.txt
+grep -h &#039;^[A-Za-z0-9]&#039; dirlist*.txt</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c centos 8 to rocky:&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c_centos_8_to_rocky&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:4,&quot;range&quot;:&quot;408-968&quot;} -->
+<h3 class="sectionedit5" id="find">find</h3>
+<div class="level3">
+
+<p>
+имена файлов и каталогов, содержащие пробелы и другие, потенциально вредные символы
+</p>
+<pre class="code">find . -regex &#039;.*[^-_./0-9a-zA-Z].*&#039;</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;find&quot;,&quot;hid&quot;:&quot;find&quot;,&quot;codeblockOffset&quot;:5,&quot;secid&quot;:5,&quot;range&quot;:&quot;969-1191&quot;} -->
+<h3 class="sectionedit6" id="tail">tail</h3>
+<div class="level3">
 
 <p>
 Просмотр логов в живую
@@ -64,13 +89,32 @@ less /var/log/nginx/access.log | cut -d&#039; &#039; -f1 | sort | uniq -c
 </pre>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c centos 8 to rocky:&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043d\u0432\u0435\u0440\u0442\u0438\u0440\u0443\u0435\u043c_centos_8_to_rocky&quot;,&quot;codeblockOffset&quot;:2,&quot;secid&quot;:4,&quot;range&quot;:&quot;408-2675&quot;} -->
-<h2 class="sectionedit5" id="scp">SCP</h2>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;tail&quot;,&quot;hid&quot;:&quot;tail&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:6,&quot;range&quot;:&quot;1192-3097&quot;} -->
+<h3 class="sectionedit7" id="обработка_текста">Обработка текста</h3>
+<div class="level3">
+<pre class="code">
+cat — объединяет файлы и выводит их в стандартный вывод;
+sort — сортирует строки из текстовых файлов;
+uniq — сообщает о повторяющихся строках или удаляет их;
+cut — удаляет фрагменты из каждой строки в файлах;
+paste — выполняет слияние строк из файлов;
+join — объединяет строки из двух файлов по общему полю;
+comm — выполняет построчное сравнение двух сортированных файлов;
+diff — выполняет построчное сравнение файлов;
+patch — применяет diff-файл (файл с результатами сравнения командой diff) к оригиналу;
+tr — перекодирует или удаляет символы;
+sed — потоковый редактор для фильтрации и преобразования текста;
+aspell — интерактивная программа проверки орфографии.
+</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0430 \u0442\u0435\u043a\u0441\u0442\u0430&quot;,&quot;hid&quot;:&quot;\u043e\u0431\u0440\u0430\u0431\u043e\u0442\u043a\u0430_\u0442\u0435\u043a\u0441\u0442\u0430&quot;,&quot;codeblockOffset&quot;:8,&quot;secid&quot;:7,&quot;range&quot;:&quot;3098-4328&quot;} -->
+<h2 class="sectionedit8" id="scp">SCP</h2>
 <div class="level2">
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;SCP&quot;,&quot;hid&quot;:&quot;scp&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:5,&quot;range&quot;:&quot;2676-2692&quot;} -->
-<h3 class="sectionedit6" id="копирование_файлов_с_удаленного_компа_и_наоборот">Копирование файлов с удаленного компа (и наоборот)</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;SCP&quot;,&quot;hid&quot;:&quot;scp&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:8,&quot;range&quot;:&quot;4329-4345&quot;} -->
+<h3 class="sectionedit9" id="копирование_файлов_с_удаленного_компа_и_наоборот">Копирование файлов с удаленного компа (и наоборот)</h3>
 <div class="level3">
 
 </div>
@@ -116,13 +160,13 @@ less /var/log/nginx/access.log | cut -d&#039; &#039; -f1 | sort | uniq -c
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432 \u0441 \u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u0430 (\u0438 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442)&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432_\u0441_\u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e_\u043a\u043e\u043c\u043f\u0430_\u0438_\u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442&quot;,&quot;codeblockOffset&quot;:6,&quot;secid&quot;:6,&quot;range&quot;:&quot;2693-3871&quot;} -->
-<h3 class="sectionedit7" id="rsync">RSYNC</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435 \u0444\u0430\u0439\u043b\u043e\u0432 \u0441 \u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e \u043a\u043e\u043c\u043f\u0430 (\u0438 \u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442)&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u0435_\u0444\u0430\u0439\u043b\u043e\u0432_\u0441_\u0443\u0434\u0430\u043b\u0435\u043d\u043d\u043e\u0433\u043e_\u043a\u043e\u043c\u043f\u0430_\u0438_\u043d\u0430\u043e\u0431\u043e\u0440\u043e\u0442&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:9,&quot;range&quot;:&quot;4346-5524&quot;} -->
+<h3 class="sectionedit10" id="rsync">RSYNC</h3>
 <div class="level3">
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RSYNC&quot;,&quot;hid&quot;:&quot;rsync&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:7,&quot;range&quot;:&quot;3872-3889&quot;} -->
-<h3 class="sectionedit8" id="изменить_имя_хоста">Изменить имя хоста</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;RSYNC&quot;,&quot;hid&quot;:&quot;rsync&quot;,&quot;codeblockOffset&quot;:12,&quot;secid&quot;:10,&quot;range&quot;:&quot;5525-5542&quot;} -->
+<h3 class="sectionedit11" id="изменить_имя_хоста">Изменить имя хоста</h3>
 <div class="level3">
 <pre class="code"> 
 hostnamectl set-hostname NewHostName</pre>
@@ -134,14 +178,14 @@ dmesg 2&gt;&amp;1 | grep «Killed» | awk &#039;{print 9 « » $8}&#039;
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043c\u044f \u0445\u043e\u0441\u0442\u0430&quot;,&quot;hid&quot;:&quot;\u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c_\u0438\u043c\u044f_\u0445\u043e\u0441\u0442\u0430&quot;,&quot;codeblockOffset&quot;:9,&quot;secid&quot;:8,&quot;range&quot;:&quot;3890-4092&quot;} -->
-<h3 class="sectionedit9" id="ip_vs_ifconfig">IP VS IFCONFIG</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0437\u043c\u0435\u043d\u0438\u0442\u044c \u0438\u043c\u044f \u0445\u043e\u0441\u0442\u0430&quot;,&quot;hid&quot;:&quot;\u0438\u0437\u043c\u0435\u043d\u0438\u0442\u044c_\u0438\u043c\u044f_\u0445\u043e\u0441\u0442\u0430&quot;,&quot;codeblockOffset&quot;:12,&quot;secid&quot;:11,&quot;range&quot;:&quot;5543-5745&quot;} -->
+<h3 class="sectionedit12" id="ip_vs_ifconfig">IP VS IFCONFIG</h3>
 <div class="level3">
 <pre class="code">https://inai.de/2008/02/19</pre>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;IP VS IFCONFIG&quot;,&quot;hid&quot;:&quot;ip_vs_ifconfig&quot;,&quot;codeblockOffset&quot;:10,&quot;secid&quot;:9,&quot;range&quot;:&quot;4093-4160&quot;} -->
-<h3 class="sectionedit10" id="генерировать_и_переносить_ключи">Генерировать и переносить ключи.</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;IP VS IFCONFIG&quot;,&quot;hid&quot;:&quot;ip_vs_ifconfig&quot;,&quot;codeblockOffset&quot;:13,&quot;secid&quot;:12,&quot;range&quot;:&quot;5746-5813&quot;} -->
+<h3 class="sectionedit13" id="генерировать_и_переносить_ключи">Генерировать и переносить ключи.</h3>
 <div class="level3">
 <pre class="code">ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port</pre>
@@ -157,8 +201,8 @@ ssh-copy-id -i ~/.ssh/id_rsa.pub username@ipaddress -P port</pre>
 <pre class="code">mkdir -p ~/.ssh</pre>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0413\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c \u043a\u043b\u044e\u0447\u0438.&quot;,&quot;hid&quot;:&quot;\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c_\u0438_\u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c_\u043a\u043b\u044e\u0447\u0438&quot;,&quot;codeblockOffset&quot;:11,&quot;secid&quot;:10,&quot;range&quot;:&quot;4161-4732&quot;} -->
-<h3 class="sectionedit11" id="ищем_и_удаляем_zombie_процессы">Ищем и удаляем Zombie процессы.</h3>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0413\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0438 \u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c \u043a\u043b\u044e\u0447\u0438.&quot;,&quot;hid&quot;:&quot;\u0433\u0435\u043d\u0435\u0440\u0438\u0440\u043e\u0432\u0430\u0442\u044c_\u0438_\u043f\u0435\u0440\u0435\u043d\u043e\u0441\u0438\u0442\u044c_\u043a\u043b\u044e\u0447\u0438&quot;,&quot;codeblockOffset&quot;:14,&quot;secid&quot;:13,&quot;range&quot;:&quot;5814-6385&quot;} -->
+<h3 class="sectionedit14" id="ищем_и_удаляем_zombie_процессы">Ищем и удаляем Zombie процессы.</h3>
 <div class="level3">
 <pre class="code">top | grep zombie
 
@@ -176,10 +220,131 @@ ps aux | grep defunct</pre>
 ps -efl | grep defunct
 
 kill -KILL 3990</pre>
+<pre class="code">for i in 33 10 37; do scp /etc/default/sheepdog 192.168.100.${i}:/etc/default; done
+for i in 22 23 25 26; do ssh-copy-id -i ~/.ssh/id_rsa.pub root@192.168.88.${i}; done</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0449\u0435\u043c \u0438 \u0443\u0434\u0430\u043b\u044f\u0435\u043c Zombie \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b.&quot;,&quot;hid&quot;:&quot;\u0438\u0449\u0435\u043c_\u0438_\u0443\u0434\u0430\u043b\u044f\u0435\u043c_zombie_\u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b&quot;,&quot;codeblockOffset&quot;:17,&quot;secid&quot;:14,&quot;range&quot;:&quot;6386-6988&quot;} -->
+<h3 class="sectionedit15" id="echo_примеры">echo примеры</h3>
+<div class="level3">
 
 <p>
-for i in 33 10 37; do scp /etc/default/sheepdog 192.168.100.${i}:/etc/default; done
+ПОДСТАНОВКА ПУТИ ДЛЯ СКРЫТЫХ ФАЙЛОВ
+</p>
+
+<p>
+ls -d .[!.]?*
+</p>
+
+<p>
+Вывод домашнего каталога<br />
+echo ~
+</p>
+
+<p>
+Посмотреть алфавит<br />
+echo {A..Z}
 </p>
 
 </div>
-<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0418\u0449\u0435\u043c \u0438 \u0443\u0434\u0430\u043b\u044f\u0435\u043c Zombie \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b.&quot;,&quot;hid&quot;:&quot;\u0438\u0449\u0435\u043c_\u0438_\u0443\u0434\u0430\u043b\u044f\u0435\u043c_zombie_\u043f\u0440\u043e\u0446\u0435\u0441\u0441\u044b&quot;,&quot;codeblockOffset&quot;:14,&quot;secid&quot;:11,&quot;range&quot;:&quot;4733-&quot;} -->
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;echo \u043f\u0440\u0438\u043c\u0435\u0440\u044b&quot;,&quot;hid&quot;:&quot;echo_\u043f\u0440\u0438\u043c\u0435\u0440\u044b&quot;,&quot;codeblockOffset&quot;:20,&quot;secid&quot;:15,&quot;range&quot;:&quot;6989-7207&quot;} -->
+<h3 class="sectionedit16" id="kоманды_управления_процессами">Kоманды управления процессами</h3>
+<div class="level3">
+
+<p>
+ps
+</p>
+
+<p>
+top (htop)
+</p>
+
+<p>
+pstree - Выводит список процессов в виде древовидной структуры, отражающей отношения «родитель–потомок» между процессами
+</p>
+
+<p>
+vmstat - Выводит мгновенный снимок с информацией об использовании системных ресурсов, включая память, файл подкачки и объем дискового ввода/вывода. Чтобы увидеть, как изменяется эта информация с течением времени, передайте команде интервал задержки (в секундах) между обновлениями (например, vmstat 5). Завершить работу команды можно нажатием CTRL+C
+</p>
+
+<p>
+xload - Программа с графическим интерфейсом, показывающая изменение нагрузки на систему с течением времени
+</p>
+
+<p>
+tload - Работает подобно программе xload, но рисует график в терминале. Завершается работа команды нажатием CTRL+C
+</p>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;K\u043e\u043c\u0430\u043d\u0434\u044b \u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f \u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430\u043c\u0438&quot;,&quot;hid&quot;:&quot;k\u043e\u043c\u0430\u043d\u0434\u044b_\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u044f_\u043f\u0440\u043e\u0446\u0435\u0441\u0441\u0430\u043c\u0438&quot;,&quot;codeblockOffset&quot;:20,&quot;secid&quot;:16,&quot;range&quot;:&quot;7208-8527&quot;} -->
+<h3 class="sectionedit17" id="команды_для_архивирования">Команды для архивирования</h3>
+<div class="level3">
+<pre class="code">tar cf file.tar files – создать tar-архив с именем file.tar содержащий files
+
+tar xf file.tar – распаковать file.tar
+
+tar czf file.tar.gz files – создать архив tar с сжатием Gzip
+
+tar xzf file.tar.gz – распаковать tar с Gzip
+
+tar cjf file.tar.bz2 – создать архив tar с сжатием Bzip2
+
+tar xjf file.tar.bz2 – распаковать tar с Bzip2
+
+gzip file – сжать file и переименовать в file.gz
+
+gzip -d file.gz - распаковать file.gz в file</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043c\u0430\u043d\u0434\u044b \u0434\u043b\u044f \u0430\u0440\u0445\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043c\u0430\u043d\u0434\u044b_\u0434\u043b\u044f_\u0430\u0440\u0445\u0438\u0432\u0438\u0440\u043e\u0432\u0430\u043d\u0438\u044f&quot;,&quot;codeblockOffset&quot;:20,&quot;secid&quot;:17,&quot;range&quot;:&quot;8528-9179&quot;} -->
+<h3 class="sectionedit18" id="команда_ifconfig_считается_устаревшей_и_постепенно_вытесняется_командой_ip">Команда ifconfig считается устаревшей и постепенно вытесняется командой ip</h3>
+<div class="level3">
+<pre class="code">ip addr show - отобразить список сетевых интерфейсов с адресами. Возможно сокращение параметров команды - ip a sh или ip a s
+ip addr list permanent - отобразить только статические ip адреса
+ip addr list dynamic - отобразить только динамические ip адреса
+ip addr add 1.1.1.13/24 dev eth0 - установить ip адрес для интерфейса eth0
+ip addr del 1.1.1.13/24 dev eth0 - удалить ip адрес интерфейса eth0
+ip addr flush dev eth0 - удалить все ip адреса интерфейса eth0
+ip addr help - отобразить справку по команде ip addr
+ip route show - отобразить сведения о маршрутах. В сокращенном варианте - ip r s
+ip route show table 255 - отобразить все маршруты из таблицы 255 ip route get 10.10.20.0/24 - отобразить маршрут к этой сети ip route get 10.10.20.0/24 from 192.168.1.100 - отобразить маршрут к этой сети от указного интерфейса с IP=192.168.1.100.
+ip route add 10.10.20.0/24 via 192.168.5.1 - создать маршрут к заданной сети через интерфейс c IP=192.168.5.1
+ip route delete 10.10.20.0/24 - удалить указанный маршрут.
+ip route del 10.10.20.0/24 via 192.168.50.100 - удалить указанный маршрут.
+ip route add default via 192.168.50.100 - создать маршрут по умолчанию.
+ip route add 10.10.20.0/24 dev eth0 - создать маршрут к указной сети .
+ip route add table nnn 10.10.20.0/24 dev eth0 - создать маршрут в специальной таблице маршрутов с номером nnn.
+ip route add to blackhole 10.10.0.0/16- создать фиктивный маршрут.
+ip route add unreachable 10.10.0.0/16 - создать недостижимый маршрут.
+ip link show - отобразить список сетевых интерфейсов.
+ip link show eth0 - отобразить состояние eth0
+ip link list up - отобразить статус всех включенных интерфейсов
+ip link set eth1 up - включить интерфейс eth1
+ip link set eth1 down - выключить интерфейс eth1
+nslookup - запуск nslookup в интерактивном режиме.
+nslookup mail.ru - отобразить сведения для домена mail.ru с использованием сервера DNS из сетевых настроек.
+nslookup mail.ru 8.8.8.8 - отобразить сведения для домена mail.ru с использованием сервера DNS с адресом 8.8.8.8 (публичный DNS-сервер Google).
+nslookup –query=mx mail.ru - отобразить запись типа MX для домена mail.ru.</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u041a\u043e\u043c\u0430\u043d\u0434\u0430 ifconfig \u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044f \u0443\u0441\u0442\u0430\u0440\u0435\u0432\u0448\u0435\u0439 \u0438 \u043f\u043e\u0441\u0442\u0435\u043f\u0435\u043d\u043d\u043e \u0432\u044b\u0442\u0435\u0441\u043d\u044f\u0435\u0442\u0441\u044f \u043a\u043e\u043c\u0430\u043d\u0434\u043e\u0439 ip&quot;,&quot;hid&quot;:&quot;\u043a\u043e\u043c\u0430\u043d\u0434\u0430_ifconfig_\u0441\u0447\u0438\u0442\u0430\u0435\u0442\u0441\u044f_\u0443\u0441\u0442\u0430\u0440\u0435\u0432\u0448\u0435\u0439_\u0438_\u043f\u043e\u0441\u0442\u0435\u043f\u0435\u043d\u043d\u043e_\u0432\u044b\u0442\u0435\u0441\u043d\u044f\u0435\u0442\u0441\u044f_\u043a\u043e\u043c\u0430\u043d\u0434\u043e\u0439_ip&quot;,&quot;codeblockOffset&quot;:21,&quot;secid&quot;:18,&quot;range&quot;:&quot;9180-12411&quot;} -->
+<h3 class="sectionedit19" id="управление_сервисами_systemd_через_утилиту_systemctl">Управление сервисами systemd через утилиту systemctl</h3>
+<div class="level3">
+<pre class="code">systemctl start name.service – запуск сервиса.
+systemctl stop name.service — остановка сервиса
+systemctl restart name.service — перезапуск сервиса
+systemctl try-restart name.service — перезапуск сервиса только, если он запущен
+systemctl reload name.service — перезагрузка конфигурации сервиса
+systemctl status name.service — проверка, запущен ли сервис с детальным выводом состояния сервиса
+systemctl is-active name.service — проверка, запущен ли сервис с простым ответом: active или inactive
+systemctl list-units --type service --all – отображение статуса всех сервисов
+systemctl enable name.service – активирует сервис (позволяет стартовать во время запуска системы)
+systemctl disable name.service – деактивирует сервис
+systemctl reenable name.service – деактивирует сервис и сразу активирует его
+systemctl is–enabled name.service – проверяет, активирован ли сервис
+systemctl list-unit-files --type service – отображает все сервисы и проверяет, какие из них активированы
+systemctl mask name.service – заменяет файл сервиса симлинком на /dev/null, делая юнит недоступным для systemd
+systemctl unmask name.service – возвращает файл сервиса, делая юнит доступным для systemd</pre>
+
+</div>
+<!-- EDIT{&quot;target&quot;:&quot;section&quot;,&quot;name&quot;:&quot;\u0423\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435 \u0441\u0435\u0440\u0432\u0438\u0441\u0430\u043c\u0438 systemd \u0447\u0435\u0440\u0435\u0437 \u0443\u0442\u0438\u043b\u0438\u0442\u0443 systemctl&quot;,&quot;hid&quot;:&quot;\u0443\u043f\u0440\u0430\u0432\u043b\u0435\u043d\u0438\u0435_\u0441\u0435\u0440\u0432\u0438\u0441\u0430\u043c\u0438_systemd_\u0447\u0435\u0440\u0435\u0437_\u0443\u0442\u0438\u043b\u0438\u0442\u0443_systemctl&quot;,&quot;codeblockOffset&quot;:22,&quot;secid&quot;:19,&quot;range&quot;:&quot;12412-&quot;} -->

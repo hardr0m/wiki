@@ -30,3 +30,14 @@ HOST=ip_address:port  #(если порт не стандартный то ук�
 PASS=password
 lftp -e "put $search" ftp://$USER:$PASS@$HOST
 </code>
+
+==== Скрипт информации о системе ====
+<code>
+#!/usr/bin/env bash
+echo "---------------------------------------------------------------"
+echo " System information "
+echo "---------------------------------------------------------------"
+echo "Operating system : $(uname)"
+lsb_release -a 2>/dev/null || echo "lsb_release command not found"
+echo "Kernel : $(uname -r)"
+</code>

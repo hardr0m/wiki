@@ -87,3 +87,8 @@ ddosify
 1000000
 defunct
 certbot
+dirlist
+forward
+dynamic
+systemd
+disable
