@@ -1,0 +1,34 @@
+msconfig - Системные настройки.
+msinfo32 - Информация о системе.
+resmon - Монитор ресурсов.
+main.cpl - Свойства мыши.
+mstsc - Подключение к удаленному рабочему столу.
+cmd - Командная строка.
+explorer - Проводник Windows.
+taskmgr - Диспетчер задач.
+shutdown - Выключение компьютера.
+chkdsk - Проверка диска.
+cleanmgr – Очистка диска.
+dxdiag - Параметры
+powershell - Консоль Windows PowerShell.
+winver - Версия
+controlfolders - Параметры папок.
+diskmgmt.msc – Управление дисками.
+eventvwr.msc – Журнал событий.
+gpedit.msc - Редактор локальной групповой политики.
+regedit - Редактор реестра.
+sysdm.cpl - Свойства системы.
+powercfg.cpl - Параметры питания.
+magnify – Экранная лупа.
+charmap - Таблица символов Windows.
+ncpa.cpl - Сетевые подключения.
+mrt - Средство удаления вредоносных программ Microsoft Windows.
+devmgmt.msc - Диспетчер устройств.
+netplwiz - Учетные записи пользователей.
+services.msc - Службы.
+appwiz.cpl - Программы и компоненты.
+control - Панель управления.
+"." - открыть папку текущего пользователя.
+osk - Экранная клавиатура.
+snippingtool - Ножницы.
+mdsched - Проверка оперативной памяти.
