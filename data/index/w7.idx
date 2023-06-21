@@ -92,3 +92,10 @@ forward
 dynamic
 systemd
 disable
+taskmgr
+regedit
+magnify
+charmap
+devmgmt
+control
+mdsched
